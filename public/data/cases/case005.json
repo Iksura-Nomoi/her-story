@@ -1,0 +1,245 @@
+{
+  "id": "case005",
+  "title": "The Broken Hull",
+  "evidence": [
+    {
+      "id": "c5_ev01",
+      "title": "Incident Report: False Hull-Integrity Recall",
+      "requiredFlag": null,
+      "content": "A welding-inspection telemetry fault triggered an emergency recall on a completed hull, timed to collapse a rival shipyard's steel-supply contract in favor of a Corvid-linked supplier. Chief inspector <span class='evidence-link' data-evidence-id='c5_ev02'>Han So-yeon</span> is being blamed for the cost overrun."
+    },
+    {
+      "id": "c5_ev02",
+      "title": "Han So-yeon: Statement",
+      "requiredFlag": null,
+      "content": "\"I flagged the telemetry as tampered three days before the recall went public. Nobody acted on my report. Then somehow I'm the one who gets blamed for the overrun.\""
+    },
+    {
+      "id": "c5_ev03",
+      "title": "Recall Press Release",
+      "requiredFlag": null,
+      "content": "Public statement announcing the emergency recall, citing \"newly discovered\" hull-integrity defects. See Media for the original scanned wire copy."
+    },
+    {
+      "id": "c5_ev04",
+      "title": "Sabotage Payload — Decrypted",
+      "requiredFlag": "PAYLOAD_DECRYPTED",
+      "content": "<strong>DECRYPTED TELEMETRY OVERRIDE</strong><br><br>Payload injects false stress-fracture readings into the welding-inspection feed. File hash: <strong>TK-5F3C9A</strong>.<br><br><em>ANALYSIS: This is a deliberate injection, not sensor failure.</em>"
+    },
+    {
+      "id": "c5_ev05",
+      "title": "Forensics Registry Match",
+      "requiredFlag": null,
+      "content": "Hash Compare returns a registry hit: origin \"Case 001 — Apapa resale-ledger toolkit,\" same encryption family. The same toolkit signature used to hide a stolen pallet's ledger is now hiding a fabricated structural defect."
+    }
+  ],
+  "messages": [
+    {
+      "id": "c5_thread01",
+      "contact": "Renata Souza",
+      "role": "HER STORY Handler",
+      "chat": [
+        {
+          "sender": "Renata",
+          "time": "11:20",
+          "text": "That wasn't theft or a leak. Someone built a fake crisis on purpose, for profit. That's a different animal."
+        }
+      ]
+    },
+    {
+      "id": "c5_thread02",
+      "contact": "Han So-yeon",
+      "role": "Inspection Team Chat",
+      "chat": [
+        {
+          "sender": "Han",
+          "time": "03:12",
+          "text": "Flagging this now — telemetry readings don't match a physical inspection I ran myself an hour ago. Something's wrong with the feed, not the hull."
+        },
+        {
+          "sender": "Shift Lead",
+          "time": "03:40",
+          "text": "Noted. Will escalate in the morning."
+        },
+        {
+          "sender": "Han",
+          "time": "09:15",
+          "text": "The recall already went public. Nobody escalated anything."
+        }
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": "c5_img01",
+      "name": "hull_damage.jpg",
+      "type": "IMAGE",
+      "content": "<img src=\"assets/case-images/c5_img01.jpg\" style=\"width:100%;height:100%;object-fit:contain;display:block;\">",
+      "metadata": {
+        "Device": "Inspection-Rig-02",
+        "Timestamp": "03:05",
+        "Location": "Busan Yard, Bay 4"
+      }
+    },
+    {
+      "id": "c5_img02",
+      "name": "recall_wire_copy.jpg",
+      "type": "IMAGE",
+      "content": "<img src=\"assets/case-images/c5_img02.jpg\" style=\"width:100%;height:100%;object-fit:contain;display:block;\">",
+      "metadata": {
+        "Device": "Wire Service Scanner",
+        "Timestamp": "—",
+        "Note": "Original scanned wire copy, contrast degraded"
+      },
+      "reveal": {
+        "property": "contrast",
+        "threshold": 2.1,
+        "direction": "above",
+        "revealText": "Wire timestamp, previously illegible: filed <strong>02:50</strong> — before the 03:12 inspection log entry the recall claims to be responding to.",
+        "resultingFlag": "TIMESTAMP_SEEN"
+      }
+    }
+  ],
+  "forensics": {
+    "afis": {},
+    "hash": {
+      "TK-5F3C9A": {
+        "origin": "Case 001 — Apapa resale-ledger toolkit",
+        "payload": "Shared encryption/injection toolkit. Same signature family as the resale ledger's decryption wrapper.",
+        "resultingFlag": "HASH_MATCHED"
+      }
+    },
+    "chem": {}
+  },
+  "timeline": [
+    {
+      "time": "02:50",
+      "category": "system",
+      "title": "Recall Press Release Filed",
+      "text": "Wire service receives the recall statement, timestamped before the defect it cites was logged.",
+      "source": "Wire Service"
+    },
+    {
+      "time": "03:05",
+      "category": "cctv",
+      "title": "Inspection Rig Photo Taken",
+      "text": "Han So-yeon photographs the hull during a routine physical inspection — no defect visible.",
+      "source": "Inspection-Rig-02"
+    },
+    {
+      "time": "03:12",
+      "category": "access",
+      "title": "Telemetry Anomaly Logged",
+      "text": "Han flags a mismatch between physical inspection and telemetry feed.",
+      "source": "Inspection Log"
+    },
+    {
+      "time": "09:15",
+      "category": "message",
+      "title": "Recall Already Public",
+      "text": "Han learns the recall went out hours before her own report was ever escalated.",
+      "source": "Team Chat"
+    }
+  ],
+  "network": [
+    {
+      "id": "c5_node01",
+      "name": "Rival Steel Contract",
+      "type": "Supply Agreement",
+      "status": "Terminated",
+      "ip": "—",
+      "traffic": "—",
+      "x": 20,
+      "y": 30,
+      "desc": "The rival shipyard's steel-supply contract, collapsed by the recall's reputational damage."
+    },
+    {
+      "id": "c5_node02",
+      "name": "Corvid-Linked Supplier",
+      "type": "Replacement Vendor",
+      "status": "Compromised",
+      "ip": "—",
+      "traffic": "—",
+      "x": 75,
+      "y": 30,
+      "desc": "Awarded the replacement contract within 48 hours of the recall — unusually fast for a contract this size."
+    }
+  ],
+  "networkConnections": [
+    {
+      "from": "c5_node01",
+      "to": "c5_node02",
+      "label": "contract reroute, <48hr"
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "c5_puzzle01",
+      "triggerCommand": "decrypt sabotage_payload.enc BUSAN-BAY4-OVERRIDE",
+      "resultingFlag": "PAYLOAD_DECRYPTED",
+      "successOutput": "SUCCESS.\n\n[OK] Payload decrypted.\nFile hash printed: TK-5F3C9A\n\n>> Take this hash to Forensics / Hash Compare. <<"
+    }
+  ],
+  "terminalFiles": {
+    "sabotage_payload.enc": {
+      "locked": true,
+      "password": "BUSAN-BAY4-OVERRIDE",
+      "content": "Refer to Case Files for the decrypted document.",
+      "type": "encrypted"
+    }
+  },
+  "suspects": [
+    {
+      "id": "c5_s01",
+      "name": "Han So-yeon",
+      "role": "Chief Welding Inspector",
+      "status": "Cleared — Witness",
+      "occupation": "Busan Shipyard",
+      "threat": "None",
+      "notes": "Initially blamed for the recall's cost overrun. Timeline shows the recall was filed before her own inspection entry — she couldn't have caused what predates her report.",
+      "aliases": [],
+      "devices": [
+        "Inspection-Rig-02"
+      ],
+      "locations": [
+        "Busan Yard, Bay 4"
+      ]
+    },
+    {
+      "id": "c5_s02_org",
+      "name": "Corvid-Linked Replacement Supplier",
+      "role": "Organization",
+      "status": "Active Suspect Entity",
+      "occupation": "Steel Supply",
+      "threat": "High",
+      "notes": "Awarded the replacement contract within 48 hours of a recall built from a fabricated telemetry payload sharing Case 001's toolkit signature.",
+      "aliases": [],
+      "devices": [],
+      "locations": [
+        "Busan"
+      ]
+    }
+  ],
+  "solution": {
+    "culpritId": "c5_s02_org",
+    "evidenceId": "c5_ev05",
+    "successMessage": "Han flagged the fault before it existed as a public crisis — the timeline alone proves the recall was written first and the \"discovery\" staged after. The toolkit hash closes the loop: the same signature that hid Case 001's stolen ledger built this fake disaster too.",
+    "nextCase": "case006",
+    "unlocks": []
+  },
+  "narrativeBeats": {
+    "onDocument": {
+      "c5_ev05": "First real registry hit. Not a hunch — a match. Someone's running the same toolkit across completely unrelated cases."
+    },
+    "onThread": {
+      "c5_thread02": "She reported this before it was even a scandal. That's not the behavior of someone hiding sabotage."
+    },
+    "onFlag": {
+      "HASH_MATCHED": "TK-5F3C9A. Apapa to Busan. That's not a coincidence anymore."
+    },
+    "onBookmark": {
+      "c5_ev04": "Bookmarked. The payload hash is going to matter again — I can feel it."
+    },
+    "onSubmitSuccess": "Han is reclassified as a witness, not a suspect. Somewhere, a supplier that got a very convenient contract is about to have a very bad week."
+  }
+}

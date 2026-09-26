@@ -1,0 +1,37 @@
+
+
+.arc-s1 {
+    width: 100%; height: 100%; font-family: var(--font-mono); display: flex;
+}
+
+.arc-s2 {
+    width: 260px; display: flex; flex-direction: column; padding: 0; background: var(--bg-surface); border-right: 1px solid var(--border-subtle); z-index: 2;
+}
+
+.arc-s3 {
+    padding: 15px; border-bottom: 1px solid var(--border-subtle); color: var(--accent-blue); font-weight: bold; text-transform: uppercase; letter-spacing: 1px;
+}
+
+.arc-s4 {
+    padding: 15px; border-bottom: 1px solid var(--border-subtle);
+}
+
+.arc-s5 {
+    width: 100%; box-sizing: border-box; background: var(--bg-void); border: 1px solid var(--border-subtle); color: var(--accent-blue); padding: 8px; outline: none; text-transform: uppercase;
+}
+
+.arc-s6 {
+    flex: 1; overflow-y: auto; padding: 10px;
+}
+
+.arc-s7 {
+    flex: 1; display: flex; flex-direction: column; padding: 0; background: var(--bg-void); position: relative; overflow-y: auto;
+}
+
+.arc-s8 {
+    padding: 30px;
+}
+
+.arc-s9 {
+    color: var(--text-muted); text-align: center; padding: 40px; font-style: italic;
+}

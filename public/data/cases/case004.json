@@ -1,0 +1,251 @@
+{
+  "id": "case004",
+  "title": "The Frozen Ledger",
+  "evidence": [
+    {
+      "id": "c4_ev01",
+      "title": "Ushuaia Relief-Coordination Archive — Access Log Summary",
+      "requiredFlag": null,
+      "content": "A decommissioned Southern Ocean disaster-relief archive has logged repeated partial exports by a contractor account, recurring under different registered names, stretching back over a decade — longer than Corvid Systems has publicly existed. The archive's master index — <strong>archive_index.enc</strong> — is still sitting on the station terminal, encrypted. See Timeline for the full pattern."
+    },
+    {
+      "id": "c4_ev02",
+      "title": "Personnel File — Locked",
+      "requiredFlag": "ARCHIVE_UNLOCKED",
+      "content": "A corrupted personnel record, file ID <strong>OSVALDO-PERS-04</strong>, sits in the archive's damaged sector. Corruption looks deliberate rather than accidental — the header structure is intact, only the body is scrambled. Use Forensics' RECOVER module."
+    },
+    {
+      "id": "c4_ev03",
+      "title": "Dr. Quiroga's Field Log (Recovered)",
+      "requiredFlag": "PERSONNEL_RECOVERED",
+      "content": "<strong>SIGNAL RECONSTRUCTED — PERSONNEL RECORD</strong><br><br>Name: F. Kessler (research designation, pre-incorporation)<br>Role: Southern Ocean disaster-relief logistics coordinator, contract 2013–2015<br>Supervisor note (O. Quiroga): \"Sharp. Sees patterns in supply failures nobody else does. I don't know what she's really building, but I hope it's not what I think.\""
+    },
+    {
+      "id": "c4_ev04",
+      "title": "Corvid Systems — Public Founding Bio",
+      "requiredFlag": null,
+      "content": "Corvid's public materials describe Dr. Farida Kessler founding the company from \"a background in logistics software.\" No mention of a Southern Ocean relief-coordination contract predating the company by nearly a decade."
+    }
+  ],
+  "messages": [
+    {
+      "id": "c4_thread01",
+      "contact": "Renata Souza",
+      "role": "HER STORY Handler",
+      "chat": [
+        {
+          "sender": "Renata",
+          "time": "10:10",
+          "text": "Ushuaia — about as remote as this job gets. An old relief archive that's been quietly bled for a decade. Corvid's incorporation papers don't match a founding story about logistics software. I don't like where this is going."
+        }
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": "c4_img01",
+      "name": "station_exterior.jpg",
+      "type": "IMAGE",
+      "content": "<img src=\"assets/case-images/c4_img01.jpg\" style=\"width:100%;height:100%;object-fit:contain;display:block;\">",
+      "metadata": {
+        "Device": "Archive-Site-Cam",
+        "Timestamp": "—",
+        "Location": "Ushuaia relief-coordination station"
+      }
+    }
+  ],
+  "cctv": [
+    {
+      "id": "c4_cam01",
+      "name": "Archive Terminal Room",
+      "duration": 40,
+      "clueStart": 5,
+      "clueEnd": 35,
+      "normalText": "TERMINAL ROOM — dormant, unstaffed for years.",
+      "clueText": "<span style='color:var(--status-warning);font-weight:bold;'>[REMOTE ACCESS ONLY]</span><br><br>No physical presence recorded during any flagged export window across the full decade. Every access was remote, credentialed, and quiet."
+    }
+  ],
+  "archive": [
+    {
+      "id": "c4_arch01",
+      "title": "Contractor Access Roster — Rotating Names",
+      "status": "FILED",
+      "date": "2014-05-02",
+      "summary": "Ten contractor names used across a decade of exports, all sharing one billing account fingerprint.",
+      "commentary": "Names rotate every twelve to eighteen months. The billing fingerprint underneath never changes."
+    },
+    {
+      "id": "c4_arch02",
+      "title": "Dr. Osvaldo Quiroga — Coordinator's Handwritten Logs",
+      "status": "ARCHIVED",
+      "date": "2015-08-19",
+      "summary": "Quiroga's personal notes from the station's last active years, kept separately from the official record.",
+      "commentary": "Buried in a margin note dated late in the 2015 season: \"file recovery, if it's ever needed — SOUTHERN-CROSS-77. Wrote it down before I forget, the way everything else here gets forgotten.\""
+    }
+  ],
+  "map": [
+    {
+      "id": "c4_map01",
+      "name": "Contractor-Access",
+      "status": "REMOTE ONLY",
+      "color": "#00c3ff",
+      "notes": "Every access point traces to remote credentials, never a physical location at the station itself.",
+      "pings": [
+        {
+          "time": "decade-spanning",
+          "loc": "Remote (untraceable relay)",
+          "x": 50,
+          "y": 50
+        }
+      ]
+    }
+  ],
+  "forensics": {
+    "afis": {},
+    "hash": {},
+    "recover": {
+      "OSVALDO-PERS-04": {
+        "recoveryKey": "SOUTHERN-CROSS-77",
+        "corruptedPreview": "N#m3: F. K3##l3r ... R0l3: S0uth3rn 0c3an ... [SIGNAL DEGRADED] ... c0ntract 2013–2015 ... [UNREADABLE]",
+        "recoveredContent": "Name: F. Kessler (research designation, pre-incorporation) — Southern Ocean disaster-relief logistics coordinator, contract 2013–2015. Supervisor note (O. Quiroga): \"Sharp. Sees patterns in supply failures nobody else does. I don't know what she's really building, but I hope it's not what I think.\"",
+        "resultingFlag": "PERSONNEL_RECOVERED"
+      }
+    },
+    "chem": {}
+  },
+  "timeline": [
+    {
+      "date": "2014-03-01",
+      "time": "—",
+      "category": "access",
+      "title": "Export — \"J. Marchetti\"",
+      "text": "Partial export of supply-route data.",
+      "source": "Archive Access Log"
+    },
+    {
+      "date": "2015-08-14",
+      "time": "—",
+      "category": "access",
+      "title": "Export — \"R. Voss\"",
+      "text": "Partial export, same data category.",
+      "source": "Archive Access Log"
+    },
+    {
+      "date": "2017-01-22",
+      "time": "—",
+      "category": "access",
+      "title": "Export — \"A. Menard\"",
+      "text": "Partial export, same data category.",
+      "source": "Archive Access Log"
+    },
+    {
+      "date": "2018-06-30",
+      "time": "—",
+      "category": "access",
+      "title": "Export — \"K. Solberg\"",
+      "text": "Partial export, same data category.",
+      "source": "Archive Access Log"
+    },
+    {
+      "date": "2020-02-11",
+      "time": "—",
+      "category": "access",
+      "title": "Export — \"D. Reyes\"",
+      "text": "Partial export, same data category.",
+      "source": "Archive Access Log"
+    },
+    {
+      "date": "2021-09-19",
+      "time": "—",
+      "category": "access",
+      "title": "Export — \"M. Okafor\"",
+      "text": "Partial export, same data category.",
+      "source": "Archive Access Log"
+    },
+    {
+      "date": "2023-04-04",
+      "time": "—",
+      "category": "access",
+      "title": "Export — \"T. Iversen\"",
+      "text": "Partial export, same data category.",
+      "source": "Archive Access Log"
+    },
+    {
+      "date": "2024-11-27",
+      "time": "—",
+      "category": "access",
+      "title": "Export — \"P. Aguirre\"",
+      "text": "Partial export, same data category.",
+      "source": "Archive Access Log"
+    },
+    {
+      "date": "2025-12-15",
+      "time": "—",
+      "category": "system",
+      "title": "Billing Fingerprint Match Confirmed",
+      "text": "All eight prior exports share one underlying billing fingerprint despite rotating names.",
+      "source": "HER STORY Analysis"
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "c4_puzzle01",
+      "triggerCommand": "decrypt archive_index.enc SOUTHERN-CROSS-77",
+      "resultingFlag": "ARCHIVE_UNLOCKED",
+      "successOutput": "SUCCESS: Valid key accepted.\n\n[OK] Archive index unlocked.\n\n>> NEW EVIDENCE 'Personnel File — Locked' UNLOCKED IN CASE FILES <<\n>> Forensics: RECOVER module now has a target file-ID (OSVALDO-PERS-04) <<"
+    }
+  ],
+  "terminalFiles": {
+    "archive_index.enc": {
+      "locked": true,
+      "password": "SOUTHERN-CROSS-77",
+      "content": "Refer to Case Files for the unlocked index.",
+      "type": "encrypted"
+    }
+  },
+  "suspects": [
+    {
+      "id": "c4_s01",
+      "name": "Rotating Contractor Accounts",
+      "role": "Access Identity",
+      "status": "Under Investigation",
+      "occupation": "Unknown",
+      "threat": "Unknown",
+      "notes": "Ten different names, one billing fingerprint. Not a person to submit against yet — the file recovery is this case's actual objective.",
+      "aliases": [
+        "J. Marchetti",
+        "R. Voss",
+        "A. Menard",
+        "K. Solberg",
+        "D. Reyes",
+        "M. Okafor",
+        "T. Iversen",
+        "P. Aguirre"
+      ],
+      "devices": [],
+      "locations": [
+        "Remote"
+      ]
+    }
+  ],
+  "solution": {
+    "culpritId": "c4_s01",
+    "evidenceId": "c4_ev03",
+    "successMessage": "The decade of rotating names was never the point — it was cover for one account bleeding one archive for one person's early fieldwork. The recovered personnel record does what no access log could: it puts a name on the pattern. Kessler's, years before Corvid existed.",
+    "nextCase": "case005",
+    "unlocks": []
+  },
+  "narrativeBeats": {
+    "onDocument": {
+      "c4_ev04": "A founding story about logistics software. It checks out publicly. It just isn't the whole truth."
+    },
+    "onThread": {},
+    "onFlag": {
+      "PERSONNEL_RECOVERED": "There it is. Kessler, under her research name, a decade before any of this had a company attached to it."
+    },
+    "onBookmark": {
+      "c4_ev03": "Bookmarked. Quiroga's last line about her is going to matter later, I think."
+    },
+    "onSubmitSuccess": "Quiroga's handwritten logs end with a line wondering what she was really building. Renata reads it twice before replying."
+  }
+}

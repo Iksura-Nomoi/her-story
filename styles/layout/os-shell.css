@@ -1,0 +1,143 @@
+
+#system-status-popover {
+    left: 72px;
+    bottom: auto;
+    top: 24px;
+}
+
+/* --- Settings: tabs + appearance --- */
+.settings-tab-btn {
+    background: transparent;
+    border: none;
+    border-left: 2px solid transparent;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-align: left;
+    padding: 12px 15px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+.settings-tab-btn:hover { color: var(--text-primary); background: rgba(255,255,255,0.03); }
+.settings-tab-btn.active { color: var(--accent-blue); border-left-color: var(--accent-blue); background: rgba(74,144,226,0.06); }
+
+.settings-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--border-subtle);
+    padding: 15px;
+    border-radius: 4px;
+}
+.settings-row-title { font-weight: bold; font-size: 13px; color: var(--text-primary); }
+.settings-row-desc { font-size: 11px; color: var(--text-secondary, var(--text-muted)); margin-top: 4px; }
+.settings-check { cursor: pointer; width: 16px; height: 16px; }
+
+/* Shared OS-styled button/select control — used by Settings (export/import,
+   theme + font-scale pickers) and the Locker pin button. */
+.sys-button {
+    background-color: rgba(74, 144, 226, 0.1);
+    color: var(--accent-blue);
+    border: 1px solid var(--accent-blue);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+.sys-button:hover { background-color: var(--accent-blue); color: var(--bg-void); }
+select.sys-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+select.sys-button:hover { color: var(--accent-blue); background-color: rgba(74, 144, 226, 0.1); }
+
+.wallpaper-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 8px;
+}
+.wallpaper-swatch {
+    height: 64px;
+    border-radius: 6px;
+    border: 1px solid var(--border-subtle);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--bg-void);
+    background-size: cover;
+    background-position: center;
+}
+.wallpaper-swatch span {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(0,0,0,0.6);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 4px 6px;
+}
+.wallpaper-swatch.is-active { border-color: var(--accent-blue); box-shadow: 0 0 0 1px var(--accent-blue); }
+
+/* --- Narrow / mobile viewport --- */
+@media (max-width: 640px) {
+    #taskbar { width: 52px; padding: 14px 0; }
+    .app-icon { width: 40px; height: 40px; }
+    .app-icon svg { width: 18px; height: 18px; }
+    .desktop-icon { width: 68px; height: 80px; }
+    .desktop-icon-glyph { width: 36px; height: 36px; }
+    .desktop-icon-glyph svg { width: 18px; height: 18px; }
+    .desktop-icon-label { font-size: 9.5px; max-width: 66px; }
+    #desktop-icons.grid-visible { background-size: 76px 88px; }
+    .notification-tray { top: 10px; right: 10px; left: 10px; }
+    .os-toast { width: auto; }
+    .desktop-context-menu { min-width: 160px; }
+    .notification-panel { left: 10px; right: 10px; width: auto; bottom: 10px; }
+}
+
+/* --- System corner: Help + Campaign Archive (always-available, floats
+   top-right, independent of the taskbar's progression-gated icons) --- */
+#system-corner {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 500;
+    display: flex;
+    gap: 8px;
+}
+.corner-btn {
+    width: auto;
+    height: 38px;
+    padding: 0 14px 0 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 6px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: border-color var(--transition-fast), color var(--transition-fast), background var(--transition-fast);
+}
+.corner-btn svg { width: 17px; height: 17px; flex-shrink: 0; }
+.corner-btn-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+.corner-btn:hover {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+    background: rgba(74, 144, 226, 0.08);
+}
+.corner-btn.hidden { display: none; }
+
+@media (max-width: 640px) {
+    #system-corner { top: 8px; right: 8px; gap: 6px; }
+    .corner-btn { height: 32px; padding: 0 10px 0 8px; }
+    .corner-btn-label { display: none; }
+}

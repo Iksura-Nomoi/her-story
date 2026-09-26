@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer's Note — HER STORY</title>
+    <meta name="description" content="A note from the developer of HER STORY, a browser-based investigation game played entirely inside a simulated desktop OS.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" type="image/svg+xml" href="assets/icons/her-story-mark.svg">
+    <style>
+        :root {
+            --bg-void: #0A0A0C;
+            --bg-surface: #121215;
+            --border-subtle: #2A2A30;
+            --text-primary: #E4E4E6;
+            --text-secondary: #A0A0A6;
+            --text-muted: rgba(228, 228, 230, 0.5);
+            --accent-blue: #4A90E2;
+            --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: var(--bg-void);
+            color: var(--text-primary);
+            font-family: var(--font-ui);
+            line-height: 1.8;
+        }
+        .doc-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 80px 24px 120px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 40px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .back-link:hover { color: var(--accent-blue); border-color: var(--accent-blue); }
+        h1 {
+            font-family: var(--font-mono);
+            font-size: 28px;
+            letter-spacing: 1px;
+            color: var(--text-primary);
+            margin: 0 0 8px;
+            text-transform: uppercase;
+        }
+        .updated {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+            letter-spacing: 0.5px;
+        }
+        p { color: var(--text-secondary); font-size: 15.5px; margin-bottom: 20px; }
+        strong { color: var(--text-primary); }
+        .note-block {
+            background: var(--bg-surface);
+            border-left: 3px solid var(--accent-blue);
+            padding: 16px 20px;
+            margin: 32px 0;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--text-secondary);
+            letter-spacing: 0.3px;
+        }
+        .sign-off {
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-subtle);
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="doc-wrap">
+        <a href="index.html" class="back-link">&larr; BACK TO HER STORY</a>
+
+        <h1>Developer's Note</h1>
+        <div class="updated">A short note on how HER STORY came to be</div>
+
+        <p>HER STORY didn't start out as HER STORY.</p>
+
+        <p>The original idea was something built entirely around a terminal — a game where a command line was the whole experience. You'd type commands, and the terminal was the only interface: no windows, no case files, no visual evidence board. Just you and a blinking cursor, typing your way through a mystery.</p>
+
+        <p>It was a cool idea on paper. In practice, it wasn't playable. Everything routed through the same narrow input, which meant every interaction — reading a document, checking evidence, cross-referencing a suspect — turned into memorizing commands or hunting through help text. It felt more like homework than investigation. The core idea (a mystery you solve by digging) was worth keeping. The interface wasn't.</p>
+
+        <p>So the terminal-only version got scrapped, and the concept turned into something else entirely: a full desktop-style investigation OS running in the browser. Instead of one terminal doing everything, the game became a workspace — Case Files, a Locker for evidence, Messages, Forensics, a Network map, CCTV, a Timeline — each its own window, each doing one job well. The terminal didn't disappear; it just became one tool among many, used where it actually made sense (decrypting a file, running a specific command) instead of being forced to carry the entire game.</p>
+
+        <div class="note-block">
+            That shift — from "one interface for everything" to "the right tool for each piece of the case" — ended up being the thing that made HER STORY actually work.
+        </div>
+
+        <p>Ten cases, a full evidence-and-suspect system, and a story that connects across cases came out of that rebuild.</p>
+
+        <p><strong>One more thing worth being upfront about:</strong> this game was built using AI. Development, debugging, and a fair amount of the architecture involved working alongside AI tools throughout — not as a gimmick, but because it's genuinely how this project got made.</p>
+
+        <div class="sign-off">— Mihsan Alam</div>
+    </div>
+</body>
+</html>

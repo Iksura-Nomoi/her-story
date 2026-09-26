@@ -1,0 +1,174 @@
+{
+  "id": "case002",
+  "title": "The Duplicate Invoice",
+  "evidence": [
+    {
+      "id": "c2_ev01",
+      "title": "Incident Report: Alvorada Comércio",
+      "requiredFlag": null,
+      "content": "A competitor obtained pricing data from at least four confidential invoices before Alvorada's own sales team saw them. Accounts clerk <span class='evidence-link' data-evidence-id='c2_ev02'>Bianca Ferraz</span> is the only person who touches every invoice before distribution — she is the obvious suspect."
+    },
+    {
+      "id": "c2_ev02",
+      "title": "Bianca Ferraz: Statement",
+      "requiredFlag": null,
+      "content": "\"I built a reconciliation macro two years ago so I wouldn't have to retype invoice totals into the shared ledger by hand. I never touched anything after that. If it's copying data somewhere, I didn't tell it to.\""
+    },
+    {
+      "id": "c2_ev03",
+      "title": "Reconciliation Macro — Documentation",
+      "requiredFlag": "MACRO_TRACED",
+      "content": "Ferraz's original macro (v1.0) only mirrors invoice totals into Alvorada's internal ledger tab. The version currently running is v1.4 — nobody on record requested the update. The added routine appends a silent outbound POST for every invoice saved, addressed to an external node.<br><br>Toolkit reference embedded in the v1.4 patch header: <strong>COR-1942-R</strong>."
+    },
+    {
+      "id": "c2_ev04",
+      "title": "External Node Registration",
+      "requiredFlag": null,
+      "content": "Registered domain resolves to a shell holding company. No public products, no staff listed. Registration reference reuses the format seen in Case 001's recovered ledger."
+    }
+  ],
+  "messages": [
+    {
+      "id": "c2_thread01",
+      "contact": "Renata Souza",
+      "role": "HER STORY Handler",
+      "chat": [
+        {
+          "sender": "Renata",
+          "time": "08:40",
+          "text": "Different city, same shape as last week almost — billing fraud this time, São Paulo. Clerk's the obvious suspect but obvious hasn't been right lately."
+        }
+      ]
+    },
+    {
+      "id": "c2_thread02",
+      "contact": "Bianca Ferraz",
+      "role": "Internal Team Chat",
+      "chat": [
+        {
+          "sender": "Colleague",
+          "time": "14:02",
+          "text": "Bianca, IT flagged weird outbound traffic every time an invoice gets saved. Yours?"
+        },
+        {
+          "sender": "Bianca",
+          "time": "14:05",
+          "text": "Not that I wrote. My macro just mirrors totals internally. I haven't changed it since 2024."
+        }
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": "c2_img01",
+      "name": "ferraz_desk.jpg",
+      "type": "IMAGE",
+      "content": "<img src=\"assets/case-images/c2_img01.jpg\" style=\"width:100%;height:100%;object-fit:contain;display:block;\">",
+      "metadata": {
+        "Device": "Alvorada-Desk-11",
+        "Timestamp": "09:15",
+        "Location": "Accounts, 3rd Floor"
+      }
+    }
+  ],
+  "cctv": [
+    {
+      "id": "c2_cam01",
+      "name": "Accounts Floor — Ferraz Desk",
+      "duration": 60,
+      "clueStart": 10,
+      "clueEnd": 50,
+      "normalText": "FERRAZ DESK — ROUTINE. Occupant present, working at terminal throughout the flagged window.",
+      "clueText": "<span style='color:var(--status-warning);font-weight:bold;'>[ALIBI CONFIRMED]</span><br><br>Ferraz is at her desk, visibly present, for the entire window in which the flagged invoices were saved and mirrored out. No one else touches her terminal."
+    }
+  ],
+  "network": [
+    {
+      "id": "c2_node01",
+      "name": "Alvorada_Ledger_Macro",
+      "type": "Internal Script Host",
+      "status": "Compromised",
+      "ip": "10.20.4.11",
+      "traffic": "—",
+      "x": 25,
+      "y": 50,
+      "desc": "Ferraz's reconciliation macro, running v1.4 instead of her authored v1.0. Patch header on the running binary reads: COR-1942-R."
+    },
+    {
+      "id": "c2_node02",
+      "name": "EXT-MIRROR-07",
+      "type": "External Shell-Registered Node",
+      "status": "Malicious",
+      "ip": "resolved via shell registrar",
+      "traffic": "<100ms fan-out",
+      "x": 75,
+      "y": 50,
+      "desc": "Receives a silent copy of every invoice the macro saves. Registration format matches Case 001's recovered ledger reference."
+    }
+  ],
+  "networkConnections": [
+    {
+      "from": "c2_node01",
+      "to": "c2_node02",
+      "label": "auto-mirror, <100ms"
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "c2_puzzle01",
+      "triggerCommand": "trace COR-1942-R",
+      "resultingFlag": "MACRO_TRACED",
+      "successOutput": "TRACE COMPLETE.\n\nCOR-1942-R matched against v1.4 patch header, Alvorada ledger macro.\nPatch not authored by original macro owner (Ferraz, v1.0).\n\n>> NEW EVIDENCE 'Reconciliation Macro — Documentation' UNLOCKED IN CASE FILES <<"
+    },
+    {
+      "id": "c2_puzzle02",
+      "triggerCommand": "netstat --external",
+      "resultingFlag": "EXTERNAL_NODE_SEEN",
+      "successOutput": "EXTERNAL CONNECTIONS:\n  EXT-MIRROR-07 :: outbound, every invoice-save event :: <100ms\n\nRecommend: open Network Observer for topology."
+    }
+  ],
+  "terminalFiles": {},
+  "suspects": [
+    {
+      "id": "c2_s01",
+      "name": "Bianca Ferraz",
+      "role": "Accounts Clerk",
+      "status": "Cleared — Exonerated",
+      "occupation": "Alvorada Comércio",
+      "threat": "None",
+      "notes": "CCTV places her at her desk the entire window. Her macro was modified by someone else post-authorship; she wrote it in good faith.",
+      "aliases": [],
+      "devices": [
+        "Alvorada-Desk-11"
+      ],
+      "locations": [
+        "Accounts, 3rd Floor"
+      ]
+    }
+  ],
+  "solution": {
+    "culpritId": "c2_s01",
+    "evidenceId": "c2_ev03",
+    "successMessage": "Ferraz is exactly what she looks like — a clerk who wrote a small tool to save herself typing, later hijacked by someone she's never met. The macro is the culprit here, not the person who wrote it. Flag the mirroring node, clear her name.",
+    "nextCase": "case003",
+    "unlocks": [
+      "archive",
+      "map"
+    ]
+  },
+  "narrativeBeats": {
+    "onDocument": {
+      "c2_ev04": "COR-1942-R again. Same shape as the code in Case 001's ledger, in a completely different country."
+    },
+    "onThread": {
+      "c2_thread02": "She reported this herself, before we even opened the case. That's not what a guilty person does."
+    },
+    "onFlag": {
+      "MACRO_TRACED": "Someone patched her macro without her knowing. The question isn't who wrote the leak — it's who patched it."
+    },
+    "onBookmark": {
+      "c2_ev03": "Bookmarked. Worth logging the code — COR-1942-R — it's turned up twice now."
+    },
+    "onSubmitSuccess": "Exonerated, and flagged. Two totally different crimes, same transaction code. That's not a coincidence Renata can explain yet."
+  }
+}

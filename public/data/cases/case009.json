@@ -1,0 +1,313 @@
+{
+  "id": "case009",
+  "title": "The Long Horizon",
+  "evidence": [
+    {
+      "id": "c9_ev01",
+      "title": "Incident Report: Nairobi Ground Station",
+      "requiredFlag": null,
+      "content": "Whistleblower engineer <span class='evidence-link' data-evidence-id='c9_ev02'>Dr. Wanjiru Kamau</span> has offered to hand HER STORY the full LOOM architecture and its client structure, in person, at the ground station where LOOM's relay infrastructure is hosted."
+    },
+    {
+      "id": "c9_ev02",
+      "title": "Dr. Wanjiru Kamau: Whistleblower Statement",
+      "requiredFlag": null,
+      "content": "\"LOOM isn't a data tool anymore, if it ever was. It's a subscription service. There's a client committee — they call themselves 'the Underwriters.' They don't buy information. They buy outcomes.\""
+    },
+    {
+      "id": "c9_ev03",
+      "title": "LOOM Architecture Diagram",
+      "requiredFlag": "ARCHITECTURE_UNLOCKED",
+      "content": "Full system diagram: intake (case selection), prediction (weak-point identification), execution (Amsel's field network), and billing (the Underwriters). See Network for the rendered org chart."
+    },
+    {
+      "id": "c9_ev04",
+      "title": "LOOM Ledger-Sync Subsystem — Code Audit",
+      "requiredFlag": null,
+      "content": "The ledger-reconciliation logic inside LOOM's billing subsystem is, uncredited, Bianca Ferraz's Case 002 macro — repurposed at scale, without her knowledge, to reconcile Underwriter payouts against engineered outcomes."
+    },
+    {
+      "id": "c9_ev05",
+      "title": "LOOM Scheduling Template",
+      "requiredFlag": "ARCHITECTURE_UNLOCKED",
+      "content": "A case-briefing template used to draft new assignments. Opening line, verbatim: \"Small one to open your file with. Should be quick.\" Renata has used this exact phrase since Case 001."
+    },
+    {
+      "id": "c9_ev06",
+      "title": "Visitor Log — Ground Station",
+      "requiredFlag": null,
+      "content": "A badge scan belonging to Viktor Amsel (biometric reference <strong>EVID-AMSEL-09</strong>), logged the week LOOM's architecture was last revised — run it through AFIS to confirm identity and placement, not just paperwork."
+    }
+  ],
+  "messages": [
+    {
+      "id": "c9_thread01",
+      "contact": "Renata Souza",
+      "role": "HER STORY Handler",
+      "chat": [
+        {
+          "sender": "Renata",
+          "time": "04:00",
+          "text": "I don't know anymore how much of what I've told you was mine. This last one — Case 010 — I'm assigning myself. No queue. No suggestions. Just you and me."
+        }
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": "c9_img01",
+      "name": "kamau_desk.jpg",
+      "type": "IMAGE",
+      "content": "<img src=\"assets/case-images/c9_img01.jpg\" style=\"width:100%;height:100%;object-fit:contain;display:block;\">",
+      "metadata": {
+        "Device": "Kamau's Terminal",
+        "Timestamp": "—",
+        "Location": "Nairobi Ground Station"
+      }
+    }
+  ],
+  "forensics": {
+    "afis": {
+      "EVID-AMSEL-09": {
+        "name": "Viktor Amsel",
+        "recordId": "LOOM-OPS-DIRECTOR"
+      }
+    },
+    "hash": {},
+    "chem": {},
+    "recover": {}
+  },
+  "network": [
+    {
+      "id": "c9_node01",
+      "name": "Corvid Systems",
+      "type": "Public Face",
+      "status": "Compromised",
+      "ip": "—",
+      "traffic": "—",
+      "x": 50,
+      "y": 10,
+      "desc": "Public-facing consulting firm, data-collection front."
+    },
+    {
+      "id": "c9_node02",
+      "name": "LOOM Intake",
+      "type": "Case Selection",
+      "status": "Compromised",
+      "ip": "—",
+      "traffic": "—",
+      "x": 15,
+      "y": 35,
+      "desc": "Selects which real-world weaknesses become engineered incidents."
+    },
+    {
+      "id": "c9_node03",
+      "name": "LOOM Prediction Core",
+      "type": "Analysis Engine",
+      "status": "Compromised",
+      "ip": "—",
+      "traffic": "—",
+      "x": 50,
+      "y": 35,
+      "desc": "Identifies exploitable weak points across supply chains, infrastructure, markets."
+    },
+    {
+      "id": "c9_node04",
+      "name": "Viktor Amsel — Field Execution",
+      "type": "Operations",
+      "status": "Malicious",
+      "ip": "—",
+      "traffic": "—",
+      "x": 85,
+      "y": 35,
+      "desc": "Executes engineered incidents across Cases 005–008 under rotating aliases."
+    },
+    {
+      "id": "c9_node05",
+      "name": "Ashcroft Maritime Security",
+      "type": "Contractor",
+      "status": "Malicious",
+      "ip": "—",
+      "traffic": "—",
+      "x": 85,
+      "y": 60,
+      "desc": "Field enforcement, first named Case 006, tied to the Case 007 death."
+    },
+    {
+      "id": "c9_node06",
+      "name": "Ledger-Sync Subsystem",
+      "type": "Billing",
+      "status": "Compromised",
+      "ip": "—",
+      "traffic": "—",
+      "x": 50,
+      "y": 60,
+      "desc": "Repurposed from Bianca Ferraz's Case 002 macro."
+    },
+    {
+      "id": "c9_node07",
+      "name": "The Underwriters",
+      "type": "Client Committee",
+      "status": "Malicious",
+      "ip": "—",
+      "traffic": "—",
+      "x": 50,
+      "y": 85,
+      "desc": "Rotating, deniable committee purchasing LOOM's engineered outcomes."
+    },
+    {
+      "id": "c9_node08",
+      "name": "HER STORY Intake (Compromised Contact)",
+      "type": "Internal Leak",
+      "status": "Compromised",
+      "ip": "—",
+      "traffic": "—",
+      "x": 15,
+      "y": 85,
+      "desc": "A LOOM-linked contact inside HER STORY's own case queue, quietly steering assignments toward symptoms, never the system."
+    }
+  ],
+  "networkConnections": [
+    {
+      "from": "c9_node01",
+      "to": "c9_node02",
+      "label": "front / intake"
+    },
+    {
+      "from": "c9_node02",
+      "to": "c9_node03",
+      "label": "weak-point ID"
+    },
+    {
+      "from": "c9_node03",
+      "to": "c9_node04",
+      "label": "execution order"
+    },
+    {
+      "from": "c9_node04",
+      "to": "c9_node05",
+      "label": "field enforcement"
+    },
+    {
+      "from": "c9_node03",
+      "to": "c9_node06",
+      "label": "outcome billing"
+    },
+    {
+      "from": "c9_node06",
+      "to": "c9_node07",
+      "label": "payout reconciliation"
+    },
+    {
+      "from": "c9_node02",
+      "to": "c9_node08",
+      "label": "seeded case queue"
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2014-03-01",
+      "time": "—",
+      "category": "access",
+      "title": "Ushuaia Export — earliest known LOOM-linked access",
+      "text": "The earliest dated event in the full campaign record.",
+      "source": "Case 004 Archive"
+    },
+    {
+      "date": "2026-01-15",
+      "time": "—",
+      "category": "system",
+      "title": "Busan Recall Staged",
+      "text": "Case 005's engineered market event.",
+      "source": "Case 005 Timeline"
+    },
+    {
+      "date": "2026-04-19",
+      "time": "22:30",
+      "category": "access",
+      "title": "Vienna — Badge Exit Logged",
+      "text": "Case 007's staged-scene sequence.",
+      "source": "Case 007 Timeline"
+    },
+    {
+      "date": "2026-06-02",
+      "time": "02:14",
+      "category": "system",
+      "title": "Toronto Attack Executed",
+      "text": "Case 008's staged infrastructure event.",
+      "source": "Case 008 Timeline"
+    },
+    {
+      "date": "2026-06-08",
+      "time": "09:00",
+      "category": "message",
+      "title": "Emergency Legislation Filed",
+      "text": "Case 008's legislative follow-through.",
+      "source": "Case 008 Timeline"
+    },
+    {
+      "date": "2026-07-30",
+      "time": "—",
+      "category": "access",
+      "title": "Amsel Badge Scan — Ground Station",
+      "text": "Physical presence confirmed the week LOOM's architecture was last revised.",
+      "source": "Visitor Log"
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "c9_puzzle01",
+      "triggerCommand": "decrypt loom_architecture.enc LONG-HORIZON-09",
+      "resultingFlag": "ARCHITECTURE_UNLOCKED",
+      "successOutput": "SUCCESS.\n\n[OK] Full architecture diagram recovered.\n\n>> NEW EVIDENCE UNLOCKED: 'LOOM Architecture Diagram', 'LOOM Scheduling Template' <<\n>> The Underwriters are now confirmed by name. <<"
+    }
+  ],
+  "terminalFiles": {
+    "loom_architecture.enc": {
+      "locked": true,
+      "password": "LONG-HORIZON-09",
+      "content": "Refer to Case Files for the unlocked diagram.",
+      "type": "encrypted"
+    }
+  },
+  "suspects": [
+    {
+      "id": "c9_s01",
+      "name": "Viktor Amsel",
+      "role": "LOOM Operations Director",
+      "status": "Active Suspect",
+      "occupation": "Corvid Systems (undisclosed title)",
+      "threat": "Severe",
+      "notes": "Appeared under rotating aliases across Cases 005–008. AFIS confirms physical presence at the Nairobi ground station the week the architecture was last revised.",
+      "aliases": [
+        "signatory, Case 005 front-company paperwork",
+        "courier handler, Case 006",
+        "'continuity consultant,' Case 007"
+      ],
+      "devices": [],
+      "locations": [
+        "Nairobi ground station"
+      ]
+    }
+  ],
+  "solution": {
+    "culpritId": "c9_s01",
+    "evidenceId": "c9_ev06",
+    "successMessage": "Amsel's aliases were never going to be enough on their own — a badge scan is. AFIS puts him physically at the facility the week the architecture changed, which means every alias across Cases 005 through 008 was the same person, standing in the same building, doing the same job under different names.",
+    "nextCase": "case010",
+    "unlocks": []
+  },
+  "narrativeBeats": {
+    "onDocument": {
+      "c9_ev05": "'Should be quick.' Renata's exact words, Case 001, sitting inside a scheduling template she's never seen. She didn't write that line into LOOM. Somebody wrote it into her."
+    },
+    "onThread": {},
+    "onFlag": {
+      "ARCHITECTURE_UNLOCKED": "The whole shape of it, finally, on one screen. Intake, prediction, execution, billing. Nine cases were nine line items."
+    },
+    "onBookmark": {
+      "c9_ev04": "Bookmarked. Bianca Ferraz never knew her own macro ended up here."
+    },
+    "onSubmitSuccess": "Amsel doesn't run. He doesn't even seem surprised. 'Do you think you'd have found any of this,' he asks, 'if we hadn't wanted you to?'"
+  }
+}

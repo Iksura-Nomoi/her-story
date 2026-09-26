@@ -1,0 +1,152 @@
+{
+  "id": "case001",
+  "title": "The Loading Dock",
+  "evidence": [
+    {
+      "id": "c1_ev01",
+      "title": "Incident Report: Apapa Bonded Warehouse",
+      "requiredFlag": null,
+      "content": "A pallet of imported diagnostic equipment (manifest ref DX-771) is logged by shift supervisor <span class='evidence-link' data-evidence-id='c1_ev02'>Tunde Balogun</span> as \"damaged in transit and destroyed per protocol.\" No destruction certificate was filed with the port authority, which is required for cargo of this value.<br><br>Balogun submitted a photo (see Media) as his only supporting documentation."
+    },
+    {
+      "id": "c1_ev02",
+      "title": "Tunde Balogun: Shift Statement",
+      "requiredFlag": null,
+      "content": "\"The pallet was crushed when the loader clipped it moving stock. I logged it as destroyed same as always. I took a photo for the file, that's standard practice. I don't know what more you want from me.\""
+    },
+    {
+      "id": "c1_ev03",
+      "title": "Decrypted Resale Ledger",
+      "requiredFlag": "LEDGER_UNLOCKED",
+      "content": "<strong>PRIVATE LEDGER — RECOVERED</strong><br><br>ITEM: Diagnostic unit, lot DX-771 (x1 pallet)<br>BUYER REF: <span class='evidence-link' data-evidence-id='c1_ev04'>Corvid Risk Partners</span><br>PAYMENT ROUTE: Intermediary courier, cash-settled<br>TOOLKIT SIG: TK-5F3C9A<br><br><em>ANALYSIS: No destruction occurred. The pallet was resold intact. The buyer reference does not match any registered clinic or hospital account.</em>"
+    },
+    {
+      "id": "c1_ev04",
+      "title": "Corvid Risk Partners — Registration Snapshot",
+      "content": "A shell entity registered eleven months prior, listed address a virtual mailbox in Lagos. No further filings on record. Flagged here only as background — nothing yet connects it to anything else."
+    }
+  ],
+  "messages": [
+    {
+      "id": "c1_thread01",
+      "contact": "Renata Souza",
+      "role": "HER STORY Handler",
+      "chat": [
+        {
+          "sender": "Renata",
+          "time": "09:02",
+          "text": "Small one to open your file with. Should be quick."
+        },
+        {
+          "sender": "Renata",
+          "time": "09:03",
+          "text": "Apapa warehouse, missing pallet, supervisor's story doesn't quite add up. File's attached. Should be a quick close."
+        }
+      ]
+    },
+    {
+      "id": "c1_thread02",
+      "contact": "Tunde Balogun",
+      "role": "Site Manager Comm Thread",
+      "chat": [
+        {
+          "sender": "Site Manager",
+          "time": "21:40",
+          "text": "Balogun, I need the destruction cert for DX-771 by morning or the insurer flags the whole shipment."
+        },
+        {
+          "sender": "Tunde",
+          "time": "21:52",
+          "text": "Working on it. Loader clipped the pallet bad, it's scrap. Sending a photo now so you've got something for the file."
+        },
+        {
+          "sender": "Tunde",
+          "time": "21:53",
+          "text": "Attached: damaged_pallet.jpg"
+        }
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": "c1_img01",
+      "name": "damaged_pallet.jpg",
+      "type": "IMAGE",
+      "content": "<img src=\"assets/case-images/c1_img01.jpg\" style=\"width:100%;height:100%;object-fit:contain;display:block;\">",
+      "metadata": {
+        "Device": "Site-Phone-04",
+        "Timestamp": "21:51",
+        "Resolution": "1920x1080",
+        "Exposure": "Underexposed (-2.3EV)"
+      },
+      "reveal": {
+        "property": "brightness",
+        "threshold": 1.8,
+        "direction": "above",
+        "revealText": "Chalk marking, lower-left crate edge: <strong>APAPA-BAY7</strong>. The pallet is intact — not crushed.",
+        "resultingFlag": "CRATE_CODE_SEEN"
+      }
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "c1_puzzle01",
+      "triggerCommand": "decrypt resale_ledger.enc APAPA-BAY7",
+      "resultingFlag": "LEDGER_UNLOCKED",
+      "successOutput": "SUCCESS: Valid decryption key accepted.\n\nEXTRACTING: resale_ledger.enc...\n[OK] Ledger recovered.\n\n>> NEW EVIDENCE 'Decrypted Resale Ledger' UNLOCKED IN CASE FILES <<"
+    }
+  ],
+  "terminalFiles": {
+    "resale_ledger.enc": {
+      "locked": true,
+      "password": "APAPA-BAY7",
+      "content": "Refer to Case Files for the decrypted document.",
+      "type": "encrypted"
+    }
+  },
+  "suspects": [
+    {
+      "id": "c1_s01",
+      "name": "Tunde Balogun",
+      "role": "Warehouse Shift Supervisor",
+      "status": "Active Suspect",
+      "occupation": "Apapa Bonded Warehouse",
+      "threat": "Low",
+      "notes": "Claims accidental damage. His own photo, once brightened past the point of legibility, shows an intact, chalk-marked crate — the opposite of his story.",
+      "aliases": [],
+      "devices": [
+        "Site-Phone-04"
+      ],
+      "locations": [
+        "Apapa Bonded Warehouse"
+      ]
+    }
+  ],
+  "solution": {
+    "culpritId": "c1_s01",
+    "evidenceId": "c1_ev03",
+    "successMessage": "Clean work. The photo he sent to cover himself is the same photo that convicts him — brighten it past what he expected anyone to bother with, and the crate he swore was destroyed is sitting there intact, chalk-marked. Ledger confirms the rest.",
+    "nextCase": "case002",
+    "unlocks": [
+      "suspects",
+      "notes",
+      "network",
+      "cctv"
+    ]
+  },
+  "narrativeBeats": {
+    "onDocument": {
+      "c1_ev04": "A shell company, nothing more. Worth a line in Notes, nothing more than that yet."
+    },
+    "onThread": {
+      "c1_thread02": "He sent this photo to cover himself. Look closer than he expected anyone to."
+    },
+    "onFlag": {
+      "CRATE_CODE_SEEN": "The crate code was never hidden — it was just underexposed. Someone didn't think anyone would turn the brightness up."
+    },
+    "onBookmark": {
+      "c1_ev04": "Bookmarked. Corvid Risk Partners. Probably nothing."
+    },
+    "onSubmitSuccess": "Balogun folds fast — says he was paid by an intermediary he never met, in cash, no questions. Case closed."
+  }
+}

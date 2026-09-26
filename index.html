@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HER STORY — Investigation Operating Environment</title>
+    <meta name="description" content="HER STORY is a browser-based investigation game played entirely inside a simulated desktop OS. Authenticate as an operator, work real case files, terminal tools and evidence archives, and close ten cases from the inside of your own machine.">
+    <meta name="author" content="Mihsan Alam">
+    <meta name="keywords" content="HER STORY, her story, her story game, investigation game, detective game, browser game, desktop simulation game, mystery game, puzzle game, indie game">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://project-offset.vercel.app/">
+
+    <!-- Strict route validation for local catch-all dev servers -->
+    <script>
+        (function() {
+            var p = window.location.pathname;
+            if (p !== '/' && p !== '/index.html') {
+                window.location.replace('/404.html' + window.location.search);
+                return;
+            }
+            var s = new URLSearchParams(window.location.search);
+            if (s.has('dev') && s.get('dev') !== '1') {
+                window.location.replace('/404.html' + window.location.search);
+            }
+        })();
+    </script>
+
+    <!-- Open Graph / social sharing (Discord, WhatsApp, LinkedIn, Facebook, Slack, Telegram) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="HER STORY">
+    <meta property="og:url" content="https://project-offset.vercel.app/">
+    <meta property="og:title" content="HER STORY — Investigation Operating Environment">
+    <meta property="og:description" content="A browser-based investigation game played entirely inside a simulated desktop OS. Authenticate as an operator, work real case files and terminal tools, and close ten cases from the inside of your own machine.">
+    <meta property="og:image" content="https://project-offset.vercel.app/assets/og/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="HER STORY — Investigation Operating Environment">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HER STORY — Investigation Operating Environment">
+    <meta name="twitter:description" content="A browser-based investigation game played entirely inside a simulated desktop OS. Authenticate as an operator, work real case files and terminal tools, and close ten cases from the inside of your own machine.">
+    <meta name="twitter:image" content="https://project-offset.vercel.app/assets/og/og-image.png">
+    <meta name="twitter:description" content="A browser-based investigation game played entirely inside a simulated desktop OS. Authenticate as an operator, work real case files and terminal tools, and close ten cases from the inside of your own machine.">
+    <meta name="twitter:image" content="https://project-offset.vercel.app/assets/og/og-image.png">
+
+    <!-- Apple Web App -->
+    <meta name="apple-mobile-web-app-title" content="HER STORY">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- HER STORY mark — favicons/app icons -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/her-story-mark.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/icon-16.png">
+    <link rel="shortcut icon" href="assets/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/icon-180.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Landing-page-only fonts: Bitcount Grid Single (HER STORY wordmark) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles/globals/main.css">
+    <link rel="stylesheet" href="styles/globals/animations.css">
+    <link rel="stylesheet" href="styles/layout/desktop.css">
+    <!-- NEW: Window styles -->
+    <link rel="stylesheet" href="styles/layout/windows.css">
+    <link rel="stylesheet" href="styles/apps/common.css">
+    <link rel="stylesheet" href="src/apps/Archive/ArchiveApp.css">
+    <link rel="stylesheet" href="src/apps/CaseArchive/CaseArchiveApp.css">
+    <link rel="stylesheet" href="src/apps/CaseFiles/CaseFilesApp.css">
+    <link rel="stylesheet" href="src/apps/Forensics/ForensicsApp.css">
+    <link rel="stylesheet" href="src/apps/Help/HelpApp.css">
+    <link rel="stylesheet" href="src/apps/Locker/LockerApp.css">
+    <link rel="stylesheet" href="src/apps/Map/MapApp.css">
+    <link rel="stylesheet" href="src/apps/Media/MediaApp.css">
+    <link rel="stylesheet" href="src/apps/Messages/MessagesApp.css">
+    <link rel="stylesheet" href="src/apps/Network/NetworkApp.css">
+    <link rel="stylesheet" href="src/apps/Notes/NotesApp.css">
+    <link rel="stylesheet" href="src/apps/Settings/SettingsApp.css">
+    <link rel="stylesheet" href="src/apps/Submit/SubmitApp.css">
+    <link rel="stylesheet" href="src/apps/Suspects/SuspectsApp.css">
+    <link rel="stylesheet" href="src/apps/Terminal/TerminalApp.css">
+    <link rel="stylesheet" href="src/apps/Timeline/TimelineApp.css">
+    <link rel="stylesheet" href="src/apps/CCTV/CCTVApp.css">
+    <link rel="stylesheet" href="styles/layout/narrative.css">
+    <link rel="stylesheet" href="styles/components/devtools.css">
+    <link rel="stylesheet" href="styles/layout/os-shell.css">
+    <link rel="stylesheet" href="styles/layout/ending.css">
+    <link rel="stylesheet" href="styles/layout/onboarding.css">
+    <link rel="stylesheet" href="styles/layout/landing-fx.css">
+    <link rel="stylesheet" href="styles/layout/landing.css">
+    <link rel="stylesheet" href="styles/layout/boot.css">
+
+    <!-- Structured data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "HER STORY",
+        "description": "HER STORY is a browser-based investigation game played entirely inside a simulated desktop OS. Authenticate as an operator, work real case files, terminal tools and evidence archives, and close ten cases from the inside of your own machine.",
+        "url": "https://project-offset.vercel.app/",
+        "image": "https://project-offset.vercel.app/assets/og/og-image.png",
+        "applicationCategory": "Game",
+        "genre": ["Mystery", "Puzzle", "Investigation"],
+        "operatingSystem": "Web browser (desktop)",
+        "author": {
+            "@type": "Person",
+            "name": "Mihsan Alam"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- MOBILE BLOCK — shown instead of everything else when the gam -->
+    <div id="mobile-block" class="hidden">
+        <div class="mobile-block-vignette"></div>
+        <div class="mobile-block-scanlines"></div>
+        <div class="mobile-block-content">
+            <svg class="mobile-block-mark" viewBox="0 0 100 100" role="img" aria-label="HER STORY">
+                <rect x="18.5" y="18.5" width="41" height="41" fill="none" stroke="#A7EF9E" stroke-width="9"/>
+                <rect x="34" y="34" width="54" height="54" fill="#060606"/>
+                <rect x="36" y="36" width="50" height="50" fill="#A7EF9E"/>
+            </svg>
+            <h1 class="mobile-block-wordmark">HER STORY</h1>
+            <div class="mobile-block-rule"></div>
+            <div class="mobile-block-terminal">
+                <div class="mobile-block-line"><span class="mobile-block-prompt">&gt;</span><span class="mobile-block-label">SESSION_CHECK</span><span class="mobile-block-value mobile-block-status mobile-block-status-fail">FAILED</span></div>
+                <div class="mobile-block-line"><span class="mobile-block-prompt">&gt;</span><span class="mobile-block-label">DISPLAY_CLASS</span><span class="mobile-block-value mobile-block-status">MOBILE</span></div>
+                <div class="mobile-block-line"><span class="mobile-block-prompt">&gt;</span><span class="mobile-block-label">REQUIRED_CLASS</span><span class="mobile-block-value mobile-block-status mobile-block-status-ok">DESKTOP</span><span class="mobile-block-caret"></span></div>
+            </div>
+            <p class="mobile-block-copy">
+                This investigation environment is built for a desktop-class
+                display. Reconnect from a desktop or laptop to resume the
+                operation.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Runs before any module loads. If this looks like a phone/tablet,
+        // show the block screen and stop — nothing else in the app initializes.
+        (function () {
+            var ua = navigator.userAgent || '';
+            var isMobileUA = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|webOS/i.test(ua);
+            var isCoarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+            var isNarrow = Math.min(window.innerWidth, window.innerHeight) < 600;
+            if (isMobileUA || (isCoarsePointer && isNarrow)) {
+                document.documentElement.classList.add('is-mobile-blocked');
+                document.getElementById('mobile-block').classList.remove('hidden');
+            }
+        })();
+    </script>
+
+    <!-- LANDING PAGE — first screen the player sees -->
+    <div id="landing-page" class="fullscreen-layer hidden">
+        <div id="landing-bg" class="faulty-terminal-container" aria-hidden="true"></div>
+        <div class="landing-info-menu">
+            <button id="btn-landing-info" class="landing-info-btn" aria-label="Info" aria-haspopup="true" aria-expanded="false">INFO</button>
+            <div id="landing-info-popup" class="landing-info-popup hidden">
+                <a href="developer-notes.html">Developer's Note</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="https://github.com/mihsanalam/Her-Story" target="_blank" rel="noopener">GitHub Repository</a>
+                <a href="https://github.com/mihsanalam" target="_blank" rel="noopener">Developer Profile</a>
+            </div>
+        </div>
+        <div class="landing-center">
+            <h1 id="landing-logo" class="landing-wordmark" aria-label="HER STORY">HER STORY</h1>
+            <div class="landing-buttons">
+                <button id="btn-landing-continue" class="landing-btn hidden" aria-label="Continue Playing">CONTINUE</button>
+                <p id="landing-continue-caption" class="landing-continue-caption hidden"></p>
+                <button id="btn-landing-play" class="landing-btn landing-subtitle-font" aria-label="Play">PLAY</button>
+                <button id="btn-landing-quit" class="landing-btn landing-subtitle-font" aria-label="Quit">QUIT</button>
+            </div>
+        </div>
+        <div class="landing-copyright">&copy; Mihsan Alam</div>
+    </div>
+
+    <!-- BOOT SEQUENCE — CRT terminal boot, played by src/core/BootSe -->
+    <div id="boot-sequence" class="fullscreen-layer hidden">
+        <div id="boot-terminal" class="boot-terminal"></div>
+        <button id="btn-skip-boot" class="skip-boot-btn hidden" aria-label="Skip">SKIP</button>
+        <div id="login-screen" class="hidden">
+            <div class="login-eyebrow">HER STORY · Secure Session</div>
+            <button id="btn-login" class="biometric-btn" aria-label="Initialize Access">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5 9 6.343 9 8s1.343 3 3 3z"/>
+                    <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
+                </svg>
+                <span>INITIALIZE ACCESS</span>
+            </button>
+            <div class="login-caption">Establishes a new operator session</div>
+        </div>
+    </div>
+
+    <!-- OPERATOR REGISTRATION — Player Journey Part 2 -->
+    <div id="operator-registration" class="fullscreen-layer hidden">
+        <div class="onboarding-panel">
+            <div class="onboarding-eyebrow">System Access · Step 1 of 2</div>
+            <h1 class="onboarding-title">Operator Registration</h1>
+            <p class="onboarding-copy">
+                Your operator identity will become part of the investigation
+                environment. Your terminal authentication and investigation
+                logs will use this identity.
+            </p>
+            <label class="onboarding-field-label" for="operator-name-input">Operator Name</label>
+            <input id="operator-name-input" class="onboarding-input" type="text" maxlength="24"
+                   autocomplete="off" spellcheck="false" placeholder="e.g. Operator" />
+            <div id="operator-name-error" class="onboarding-error hidden">Enter a name to continue.</div>
+            <button id="btn-operator-continue" class="os-button onboarding-action">Continue</button>
+        </div>
+    </div>
+
+    <!-- MISSION BRIEFING — Player Journey Part 3 -->
+    <div id="mission-briefing" class="fullscreen-layer hidden">
+        <div class="onboarding-panel onboarding-panel-wide">
+            <div class="onboarding-eyebrow">System Access · Step 2 of 2</div>
+            <h1 id="briefing-page-title" class="onboarding-title">Mission Briefing</h1>
+            <div id="briefing-page-body" class="onboarding-briefing-body"></div>
+            <div class="onboarding-briefing-footer">
+                <div id="briefing-dots" class="onboarding-briefing-dots"></div>
+                <div class="onboarding-briefing-actions">
+                    <button id="btn-briefing-skip" class="ending-link-btn">Skip</button>
+                    <button id="btn-briefing-prev" class="os-button onboarding-secondary" disabled>Previous</button>
+                    <button id="btn-briefing-next" class="os-button onboarding-action">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="desktop-environment" class="fullscreen-layer hidden">
+        <div class="cursor-glow"></div>
+        <div id="wallpaper-layer" class="wallpaper-blueprint"></div>
+
+        <div id="system-corner">
+            <button id="btn-help-system" class="app-icon corner-btn" aria-label="Investigation Guide" data-tooltip="Help">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2.5 2-2.5 3.5"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg>
+                <span class="corner-btn-label">Help</span>
+            </button>
+            <button id="btn-case-archive" class="app-icon corner-btn hidden" aria-label="Campaign Archive" data-tooltip="Archive">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9"/><path d="M10 13h4"/></svg>
+                <span class="corner-btn-label">Archive</span>
+            </button>
+        </div>
+
+        <nav id="taskbar">
+            <button id="btn-desktop-shortcut" class="app-icon taskbar-desktop-btn taskbar-logo-btn" aria-label="Show Desktop" data-tooltip="HER STORY">
+                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round"><circle cx="34" cy="34" r="20" stroke-width="7"/><line x1="48" y1="48" x2="63" y2="63" stroke-width="7"/><circle cx="47" cy="47" r="20" stroke-width="10"/><line x1="61.5" y1="61.5" x2="79" y2="79" stroke-width="10"/></svg>
+            </button>
+
+            <div class="taskbar-divider"></div>
+
+            <div id="taskbar-running" class="taskbar-top" aria-label="Running applications"></div>
+
+            <div class="taskbar-bottom">
+                <button id="btn-app-settings" class="app-icon" aria-label="Settings" data-tooltip="Settings">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                </button>
+                <div id="notification-tray-btn" class="app-icon" role="button" tabindex="0" aria-label="Notifications" data-tooltip="Notifications">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                </div>
+                <button id="taskbar-fullscreen-btn" class="app-icon" aria-label="Toggle Fullscreen" data-tooltip="Fullscreen">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                </button>
+                <div id="system-clock">00:00</div>
+            </div>
+        </nav>
+
+        <main id="workspace">
+            <div id="desktop-icons"></div>
+        </main>
+
+        <!-- Hidden app launch buttons kept for app instantiation wiring only; the
+             desktop icon grid and taskbar running-list are the visible launchers now. -->
+        <div id="legacy-app-triggers" class="hidden">
+            <button id="btn-app-files"></button>
+            <button id="btn-app-messages"></button>
+            <button id="btn-app-suspects"></button>
+            <button id="btn-app-locker"></button>
+            <button id="btn-app-media"></button>
+            <button id="btn-app-cctv"></button>
+            <button id="btn-app-timeline"></button>
+            <button id="btn-app-map"></button>
+            <button id="btn-app-forensics"></button>
+            <button id="btn-app-terminal"></button>
+            <button id="btn-app-network"></button>
+            <button id="btn-app-notes"></button>
+            <button id="btn-app-archive"></button>
+            <button id="btn-app-case-archive"></button>
+            <button id="btn-app-submit"></button>
+        </div>
+
+        <div id="desktop-context-menu" class="desktop-context-menu hidden">
+            <button data-action="refresh">Refresh</button>
+            <button data-action="sort">Sort Icons</button>
+            <button data-action="arrange">Arrange Icons</button>
+            <div class="ctx-divider"></div>
+            <button data-action="wallpaper">Wallpaper</button>
+            <button data-action="appearance">Appearance</button>
+            <button data-action="settings">Settings</button>
+        </div>
+
+        <div id="notification-tray" class="notification-tray"></div>
+        <div id="notification-panel" class="notification-panel hidden"></div>
+    </div>
+
+    <div id="campaign-ending" class="fullscreen-layer hidden">
+        <!-- EPILOGUE -->
+        <section id="ending-epilogue" class="ending-screen hidden">
+            <div class="ending-progress-dots"><span class="dot is-active"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="ending-eyebrow">Investigation Closed</div>
+            <div id="epilogue-lines" class="ending-terminal"></div>
+            <button id="btn-epilogue-continue" class="os-button ending-action ending-next-btn hidden">
+                <span>Next</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+        </section>
+
+        <!-- REVIEW & RATING -->
+        <section id="ending-review" class="ending-screen hidden">
+            <div class="ending-progress-dots"><span class="dot"></span><span class="dot is-active"></span><span class="dot"></span></div>
+            <div class="ending-eyebrow">Investigation Complete</div>
+            <h1 class="ending-title">Rate This Operation</h1>
+            <div id="ending-stars" class="ending-stars" role="radiogroup" aria-label="Rating">
+                <button class="star-btn" data-value="1" aria-label="1 star">★</button>
+                <button class="star-btn" data-value="2" aria-label="2 stars">★</button>
+                <button class="star-btn" data-value="3" aria-label="3 stars">★</button>
+                <button class="star-btn" data-value="4" aria-label="4 stars">★</button>
+                <button class="star-btn" data-value="5" aria-label="5 stars">★</button>
+            </div>
+            <textarea id="ending-review-text" class="ending-textarea" placeholder="Written review (optional)" rows="4"></textarea>
+            <input id="ending-review-feedback" class="ending-input" type="text" placeholder="Optional feedback for the developer" />
+            <div class="ending-review-actions">
+                <button id="btn-review-back" class="ending-link-btn ending-next-btn ending-back-btn">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+                    <span>Back</span>
+                </button>
+                <div class="ending-review-actions-right">
+                    <button id="btn-review-skip" class="ending-link-btn ending-next-btn">
+                        <span>Next</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CREDITS -->
+        <section id="ending-credits" class="ending-screen hidden">
+            <div class="ending-progress-dots"><span class="dot"></span><span class="dot"></span><span class="dot is-active"></span></div>
+            <div class="ending-credits-block">
+                <svg class="ending-credits-mark" viewBox="0 0 100 100" role="img" aria-label="HER STORY">
+                    <g fill="none" stroke="#A7EF9E" stroke-linecap="round">
+                        <circle cx="34" cy="34" r="20" stroke-width="7"/>
+                        <line x1="48" y1="48" x2="63" y2="63" stroke-width="7"/>
+                    </g>
+                    <g fill="none" stroke="#A7EF9E" stroke-linecap="round">
+                        <circle cx="47" cy="47" r="20" stroke-width="10"/>
+                        <line x1="61.5" y1="61.5" x2="79" y2="79" stroke-width="10"/>
+                    </g>
+                </svg>
+                <div class="ending-credits-logo">HER STORY</div>
+                <div class="ending-credits-row"><span class="ending-credits-label">Created by</span><span class="ending-credits-name">Mihsan Alam</span></div>
+                <div class="ending-credits-row"><span class="ending-credits-label">Special Thanks</span>Every operator who saw this through</div>
+                <div class="ending-credits-row"><span class="ending-credits-label">Technologies Used</span>HTML · CSS · Vanilla JavaScript</div>
+                <div class="ending-credits-row"><span class="ending-credits-label">Version</span>Build 1.0</div>
+                <div class="ending-credits-thanks">Thank you for investigating.</div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Landing page info popup wiring
+        (function () {
+            var btn = document.getElementById('btn-landing-info');
+            var popup = document.getElementById('landing-info-popup');
+            var copyBtn = document.getElementById('btn-copy-discord');
+            if (!btn || !popup) return;
+
+            btn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                var isHidden = popup.classList.toggle('hidden');
+                btn.setAttribute('aria-expanded', String(!isHidden));
+            });
+
+            document.addEventListener('click', function (e) {
+                if (!popup.classList.contains('hidden') && !popup.contains(e.target) && e.target !== btn) {
+                    popup.classList.add('hidden');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            if (copyBtn) {
+                copyBtn.addEventListener('click', function () {
+                    var original = copyBtn.textContent;
+                    navigator.clipboard.writeText('mihsanalam').then(function () {
+                        copyBtn.textContent = 'Copied!';
+                        setTimeout(function () { copyBtn.textContent = original; }, 1500);
+                    }).catch(function () {
+                        copyBtn.textContent = 'mihsanalam (copy failed)';
+                        setTimeout(function () { copyBtn.textContent = original; }, 1500);
+                    });
+                });
+            }
+        })();
+    </script>
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>

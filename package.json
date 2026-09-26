@@ -1,0 +1,34 @@
+{
+  "name": "her-story",
+  "version": "1.0.0",
+  "description": "HER STORY — Investigation Operating Environment",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "her-story",
+    "investigation",
+    "detective",
+    "simulation",
+    "os"
+  ],
+  "author": "Mihsan Alam",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "firebase-admin": "^12.6.0"
+  },
+  "devDependencies": {
+    "vite": "^8.2.1",
+    "jsdom": "^30.0.1"
+  },
+  "allowScripts": {
+    "protobufjs@7.6.5": true
+  }
+}

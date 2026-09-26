@@ -1,0 +1,24 @@
+<div class="dual-pane-app cct-s1">
+    <div class="app-sidebar cct-s2">
+        <div class="cct-s3">
+            SURVEILLANCE FEEDS
+        </div>
+        <div class="cct-s4" id="cctv-list-{{id}}"></div>
+    </div>
+    <div class="app-content cct-s5">
+        <div class="cct-s6" id="cctv-screen-{{id}}">
+            <div class="cct-s7">
+                <div class="cct-s8"></div> REC
+            </div>
+            <div class="cct-s9" id="cctv-overlay-name-{{id}}">OFFLINE</div>
+            <div class="cct-s10" id="cctv-feed-text-{{id}}">
+                {{initialMessage}}
+            </div>
+            <div class="cct-s11" id="cctv-timestamp-{{id}}">00:00:00</div>
+        </div>
+        <div class="cct-s12">
+            <span class="cct-s13">SCRUB:</span>
+            <input class="cct-s14" type="range" id="cctv-scrubber-{{id}}" min="0" max="100" value="0" disabled>
+        </div>
+    </div>
+</div>

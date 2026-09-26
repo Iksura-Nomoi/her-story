@@ -1,0 +1,57 @@
+
+
+.cct-s1 {
+    flex: 1; width: 100%; display: flex; font-family: var(--font-mono); overflow: hidden;
+}
+
+.cct-s2 {
+    width: 250px; display: flex; flex-direction: column; padding: 0; flex-shrink: 0; z-index: 2;
+}
+
+.cct-s3 {
+    padding: 15px; border-bottom: 1px solid var(--border-subtle); color: var(--accent-blue); font-size: 12px; font-weight: bold; letter-spacing: 1px;
+}
+
+.cct-s4 {
+    flex: 1; overflow-y: auto;
+}
+
+.cct-s5 {
+    flex: 1; display: flex; flex-direction: column; padding: 0; background: #000; position: relative; overflow: hidden;
+}
+
+.cct-s6 {
+    flex: 1; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(0deg, #0a0a0a, #0a0a0a 2px, #111 2px, #111 4px);
+}
+
+.cct-s7 {
+    position: absolute; top: 20px; left: 20px; color: var(--status-error); font-weight: bold; display: flex; align-items: center; gap: 8px;
+}
+
+.cct-s8 {
+    width: 12px; height: 12px; background: var(--status-error); border-radius: 50%; animation: blink 2s infinite;
+}
+
+.cct-s9 {
+    position: absolute; top: 20px; right: 20px; color: #fff; font-size: 14px; text-shadow: 1px 1px 2px #000;
+}
+
+.cct-s10 {
+    color: var(--text-secondary); text-align: center; font-size: 14px; letter-spacing: 1px; z-index: 2; padding: 20px; text-shadow: 1px 1px 2px #000;
+}
+
+.cct-s11 {
+    position: absolute; bottom: 20px; right: 20px; color: #fff; font-size: 18px; text-shadow: 1px 1px 2px #000; letter-spacing: 2px;
+}
+
+.cct-s12 {
+    height: 60px; border-top: 1px solid var(--border-subtle); background: var(--bg-surface); padding: 0 20px; display: flex; align-items: center; gap: 15px; flex-shrink: 0;
+}
+
+.cct-s13 {
+    color: var(--accent-blue); font-size: 12px;
+}
+
+.cct-s14 {
+    flex: 1; cursor: pointer;
+}

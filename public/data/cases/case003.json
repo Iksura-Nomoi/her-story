@@ -1,0 +1,181 @@
+{
+  "id": "case003",
+  "title": "The Phantom Manifest",
+  "evidence": [
+    {
+      "id": "c3_ev01",
+      "title": "Manila Port Authority — Manifest Discrepancy Notice",
+      "requiredFlag": null,
+      "content": "Container MNL-KHH-03 appears on two separate bills of lading, both filed within the same shipping cycle, both referencing prefix <strong>COR-1978</strong>. Physically, a container cannot be in two places on one manifest cycle."
+    },
+    {
+      "id": "c3_ev02",
+      "title": "Bill of Lading — Entry A (Manila)",
+      "requiredFlag": null,
+      "content": "Declared cargo: industrial fittings. Consignee: a Manila-registered trading office. Reference: COR-1978-M."
+    },
+    {
+      "id": "c3_ev03",
+      "title": "Bill of Lading — Entry B (Kaohsiung transshipment)",
+      "requiredFlag": null,
+      "content": "Declared cargo: identical fittings, identical weight, different declared value. Consignee: a Kaohsiung-registered forwarding office. Reference: COR-1978-K."
+    },
+    {
+      "id": "c3_ev04",
+      "title": "Corvid Systems — Corporate Filing",
+      "requiredFlag": "ARCHIVE_TRACED",
+      "content": "Both consignee offices resolve to subsidiaries of one parent: <strong>Corvid Systems</strong>, self-described as a \"global resilience & risk consulting\" firm. This is the first filing that connects the shell used in Case 001 and the mirroring node used in Case 002 to one named company."
+    }
+  ],
+  "messages": [
+    {
+      "id": "c3_thread01",
+      "contact": "Renata Souza",
+      "role": "HER STORY Handler",
+      "chat": [
+        {
+          "sender": "Renata",
+          "time": "07:55",
+          "text": "Three cases in, and Manila's just handed me a container that's apparently in two places on paper. I think we've been looking at pieces of one thing."
+        }
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": "c3_img01",
+      "name": "customs_memo.jpg",
+      "type": "IMAGE",
+      "content": "<img src=\"assets/case-images/c3_img01.jpg\" style=\"width:100%;height:100%;object-fit:contain;display:block;\">",
+      "metadata": {
+        "Device": "Port-Authority-Scanner",
+        "Timestamp": "—",
+        "Location": "Manila Customs Office"
+      }
+    }
+  ],
+  "cctv": [
+    {
+      "id": "c3_cam01",
+      "name": "Manila Terminal Gate 3",
+      "duration": 45,
+      "clueStart": 10,
+      "clueEnd": 30,
+      "normalText": "GATE 3 — ROUTINE. Container MNL-KHH-03 logged departing on schedule.",
+      "clueText": "<span style='color:var(--status-warning);font-weight:bold;'>[NO PHYSICAL RE-ENTRY]</span><br><br>Gate log confirms the container left Manila once and never returned. The Kaohsiung entry is a paperwork duplicate, not a second physical container."
+    }
+  ],
+  "archive": [
+    {
+      "id": "c3_arch01",
+      "title": "Bill of Lading — COR-1978-M",
+      "status": "FILED",
+      "date": "2026-02-11",
+      "summary": "Manila-declared entry for container MNL-KHH-03.",
+      "commentary": "Filed by the Manila-registered trading office. Declared value is roughly 40% lower than the Kaohsiung entry for identical cargo.",
+      "relatedTo": [
+        "c3_arch02"
+      ]
+    },
+    {
+      "id": "c3_arch02",
+      "title": "Bill of Lading — COR-1978-K",
+      "status": "FILED",
+      "date": "2026-02-11",
+      "summary": "Kaohsiung-declared transshipment entry for the same container.",
+      "commentary": "Filed by the Kaohsiung forwarding office on the same cycle. The value gap between the two entries is the actual crime — laundering cargo value through a paper duplicate, not moving anything twice.",
+      "relatedTo": [
+        "c3_arch01"
+      ]
+    },
+    {
+      "id": "c3_arch03",
+      "title": "Corvid Systems — Registered Subsidiaries",
+      "status": "REFERENCE",
+      "date": "2025-09-02",
+      "summary": "Corporate filing listing both the Manila and Kaohsiung consignee offices as subsidiaries of Corvid Systems.",
+      "commentary": "First document tying both offices, and by extension both prior cases' shells, to one named parent company.",
+      "relatedTo": []
+    }
+  ],
+  "map": [
+    {
+      "id": "c3_map01",
+      "name": "MNL-KHH-03",
+      "status": "NO PHYSICAL DUPLICATION",
+      "color": "#00c3ff",
+      "notes": "Declared route only — the physical container never left Manila's terminal twice.",
+      "pings": [
+        {
+          "time": "Day 1",
+          "loc": "Manila Terminal",
+          "x": 20,
+          "y": 50
+        },
+        {
+          "time": "Day 1 (declared)",
+          "loc": "Kaohsiung Transshipment",
+          "x": 70,
+          "y": 30
+        }
+      ]
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "c3_puzzle01",
+      "triggerCommand": "archive query --manifest COR-19",
+      "resultingFlag": "ARCHIVE_TRACED",
+      "successOutput": "QUERY COMPLETE.\n\n2 records matched prefix COR-19.\nBoth resolve to subsidiaries of a single parent entity.\n\n>> NEW EVIDENCE 'Corvid Systems — Corporate Filing' UNLOCKED IN CASE FILES <<"
+    },
+    {
+      "id": "c3_puzzle02",
+      "triggerCommand": "mapresolve MNL-KHH-03",
+      "resultingFlag": "ROUTE_RESOLVED",
+      "successOutput": "ROUTE RESOLUTION:\n\nSingle physical container. Two declared routes. One is a paperwork ghost.\nSee Map for physical vs. declared overlay."
+    }
+  ],
+  "terminalFiles": {},
+  "suspects": [
+    {
+      "id": "c3_s01_org",
+      "name": "Corvid Systems — Manila/Kaohsiung Shipping Subsidiary",
+      "role": "Organization",
+      "status": "Culpable Entity",
+      "occupation": "\"Global resilience & risk consulting\"",
+      "threat": "Unknown, escalating",
+      "notes": "No individual filed either bill of lading personally — the entity itself is the culprit. First organizational suspect entry in the campaign.",
+      "aliases": [
+        "Corvid Risk Partners (Case 001)"
+      ],
+      "devices": [],
+      "locations": [
+        "Manila",
+        "Kaohsiung"
+      ]
+    }
+  ],
+  "solution": {
+    "culpritId": "c3_s01_org",
+    "evidenceId": "c3_ev04",
+    "successMessage": "There's no person to arrest here — the duplicate manifest is a mechanism, and the mechanism belongs to Corvid Systems. Flagging the subsidiary is the only submission that fits what the evidence actually shows.",
+    "nextCase": "case004",
+    "unlocks": [
+      "forensics",
+      "timeline"
+    ]
+  },
+  "narrativeBeats": {
+    "onDocument": {
+      "c3_ev04": "Corvid Systems. Not a shell this time — a real company, with a real name, sitting behind two shells from two different cases."
+    },
+    "onThread": {},
+    "onFlag": {
+      "ARCHIVE_TRACED": "Same fingerprints, third country. This isn't three cases anymore."
+    },
+    "onBookmark": {
+      "c3_ev04": "Bookmarked. Corvid Systems — full name confirmed."
+    },
+    "onSubmitSuccess": "Submission flags the subsidiary. Regulators are notified. Renata's gone quiet on the line — she's already thinking about what comes next."
+  }
+}

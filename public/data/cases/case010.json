@@ -1,0 +1,479 @@
+{
+  "id": "case010",
+  "title": "The Underwriters",
+  "showCrossCaseArchive": true,
+  "evidence": [
+    {
+      "id": "c10_ev01",
+      "title": "Incident Briefing: Brussels Synthesis",
+      "requiredFlag": null,
+      "content": "Renata has assigned this case herself, off-queue. Dr. Farida Kessler has broken no single law any one jurisdiction can prosecute — LOOM's outputs look, individually, exactly like the accidents and coincidences the player spent nine cases proving were engineered. This submission must be built from evidence across all nine prior cases, bundled through the PRIOR CASE EVIDENCE panel."
+    },
+    {
+      "id": "c10_ev02",
+      "title": "Kessler's Internal Memo — Recovered",
+      "requiredFlag": "MEMO_CHAIN_COMPLETE",
+      "content": "<strong>RECOVERED — KESSLER, PERSONAL</strong><br><br>\"Instability is the only truly renewable resource. The Underwriters were never buying secrecy. They were buying scheduling. I never manufactured a single lie — I only automated the identification of real, exploitable weaknesses that already existed. That is, I am told, very good forensic investigation. I simply chose what to do with it.\""
+    },
+    {
+      "id": "c10_ev03",
+      "title": "CRSB / Ashcroft Client Severance Filing",
+      "requiredFlag": null,
+      "content": "Draft institutional filing, ready to submit, severing Corvid Systems from the CRSB standards machinery Lindgren died defending, from Ashcroft's own client relationships, and from HER STORY's institutional partners — contingent on the player's final bundled submission."
+    },
+    {
+      "id": "c10_ev04",
+      "title": "Terminal Log — Post-Submission",
+      "requiredFlag": "FINAL_LOG_UNLOCKED",
+      "content": "A new entry, timestamped after this case closes, bearing the COR-19 prefix one more time, filed in a country never visited in this campaign. No further detail. No further case assigned."
+    }
+  ],
+  "messages": [
+    {
+      "id": "c10_thread01",
+      "contact": "Renata Souza",
+      "role": "HER STORY Handler",
+      "chat": [
+        {
+          "sender": "Renata",
+          "time": "05:00",
+          "text": "No queue today. No suggestions. This one's just you and me, and everything we've both put together since Case 001."
+        },
+        {
+          "sender": "Renata",
+          "time": "05:02",
+          "text": "You're going to need the old files. All of them. Bundle it into one submission — the only kind of case this ever really was."
+        }
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": "c10_img01",
+      "name": "kessler_office.jpg",
+      "type": "IMAGE",
+      "content": "<img src=\"assets/case-images/c10_img01.jpg\" style=\"width:100%;height:100%;object-fit:contain;display:block;\">",
+      "metadata": {
+        "Device": "Field Capture",
+        "Timestamp": "—",
+        "Location": "Corvid Systems, Brussels HQ"
+      }
+    }
+  ],
+  "cctv": [
+    {
+      "id": "c10_cam01",
+      "name": "Brussels HQ — Executive Floor",
+      "duration": 50,
+      "clueStart": 15,
+      "clueEnd": 35,
+      "normalText": "EXECUTIVE FLOOR — routine. Kessler present, unremarkable.",
+      "clueText": "<span style='color:var(--status-warning);font-weight:bold;'>[NOTHING TO SEE]</span><br><br>There is no incriminating footage here, deliberately. Kessler does nothing wrong-looking on camera, ever. The case was never going to be won on this floor."
+    }
+  ],
+  "network": [
+    {
+      "id": "c10_node01",
+      "name": "Case 001 — Apapa",
+      "type": "Field Calibration",
+      "status": "Compromised",
+      "ip": "—",
+      "traffic": "—",
+      "x": 10,
+      "y": 15,
+      "desc": "Toolkit signature TK-5F3C9A originates here."
+    },
+    {
+      "id": "c10_node02",
+      "name": "Case 002 — São Paulo",
+      "type": "Field Calibration",
+      "status": "Compromised",
+      "ip": "—",
+      "traffic": "—",
+      "x": 30,
+      "y": 10,
+      "desc": "COR-1942-R first recurs."
+    },
+    {
+      "id": "c10_node03",
+      "name": "Case 003 — Manila/Kaohsiung",
+      "type": "Field Calibration",
+      "status": "Compromised",
+      "ip": "—",
+      "traffic": "—",
+      "x": 50,
+      "y": 10,
+      "desc": "Corvid Systems named in full."
+    },
+    {
+      "id": "c10_node04",
+      "name": "Case 004 — Ushuaia",
+      "type": "Origin",
+      "status": "Compromised",
+      "ip": "—",
+      "traffic": "—",
+      "x": 70,
+      "y": 15,
+      "desc": "Kessler's early fieldwork, harvested for a decade."
+    },
+    {
+      "id": "c10_node05",
+      "name": "Case 005 — Busan",
+      "type": "Field Calibration",
+      "status": "Compromised",
+      "ip": "—",
+      "traffic": "—",
+      "x": 15,
+      "y": 40,
+      "desc": "First engineered market event."
+    },
+    {
+      "id": "c10_node06",
+      "name": "Case 006 — Doha",
+      "type": "Field Calibration",
+      "status": "Compromised",
+      "ip": "—",
+      "traffic": "—",
+      "x": 35,
+      "y": 45,
+      "desc": "Ashcroft Maritime Security introduced."
+    },
+    {
+      "id": "c10_node07",
+      "name": "Case 007 — Vienna",
+      "type": "Turning Point",
+      "status": "Malicious",
+      "ip": "—",
+      "traffic": "—",
+      "x": 55,
+      "y": 45,
+      "desc": "LOOM confirmed by name; a death to protect it."
+    },
+    {
+      "id": "c10_node08",
+      "name": "Case 008 — Toronto",
+      "type": "Meta-Escalation",
+      "status": "Malicious",
+      "ip": "—",
+      "traffic": "—",
+      "x": 75,
+      "y": 40,
+      "desc": "Prior cases logged as calibration runs."
+    },
+    {
+      "id": "c10_node09",
+      "name": "Case 009 — Nairobi",
+      "type": "Architecture",
+      "status": "Malicious",
+      "ip": "—",
+      "traffic": "—",
+      "x": 50,
+      "y": 65,
+      "desc": "Full LOOM architecture and the Underwriters, named."
+    },
+    {
+      "id": "c10_node10",
+      "name": "Dr. Farida Kessler",
+      "type": "Architect",
+      "status": "Malicious",
+      "ip": "—",
+      "traffic": "—",
+      "x": 50,
+      "y": 90,
+      "desc": "Founder. Never a selectable suspect until this case."
+    }
+  ],
+  "networkConnections": [
+    {
+      "from": "c10_node01",
+      "to": "c10_node05",
+      "label": "toolkit reuse"
+    },
+    {
+      "from": "c10_node05",
+      "to": "c10_node07",
+      "label": "toolkit reuse"
+    },
+    {
+      "from": "c10_node07",
+      "to": "c10_node08",
+      "label": "toolkit reuse"
+    },
+    {
+      "from": "c10_node02",
+      "to": "c10_node09",
+      "label": "ledger-sync subsystem"
+    },
+    {
+      "from": "c10_node03",
+      "to": "c10_node04",
+      "label": "Corvid Systems"
+    },
+    {
+      "from": "c10_node04",
+      "to": "c10_node10",
+      "label": "origin fieldwork"
+    },
+    {
+      "from": "c10_node06",
+      "to": "c10_node09",
+      "label": "the Underwriters"
+    },
+    {
+      "from": "c10_node08",
+      "to": "c10_node09",
+      "label": "architecture mapped"
+    },
+    {
+      "from": "c10_node09",
+      "to": "c10_node10",
+      "label": "commissioned by"
+    }
+  ],
+  "archive": [
+    {
+      "id": "c10_arch01",
+      "title": "Foreshadowing Ledger — Cross-Case Index",
+      "status": "REFERENCE",
+      "date": "2026-08-01",
+      "summary": "Consolidated index of the COR-19/COR-1942-R code family across all nine prior cases.",
+      "commentary": "Every appearance, from Case 001's shell registration to Case 009's job-ticket prefix, filed here for the final submission.",
+      "relatedTo": [
+        "c10_arch02"
+      ]
+    },
+    {
+      "id": "c10_arch02",
+      "title": "Kessler / Corvid Founding Timeline — Full Reconstruction",
+      "status": "REFERENCE",
+      "date": "2026-08-01",
+      "summary": "Complete timeline from Case 004's Ushuaia contract to the present filing.",
+      "commentary": "Assembled from the cross-case evidence pool; the only complete version of Kessler's history that exists anywhere.",
+      "relatedTo": [
+        "c10_arch01"
+      ]
+    }
+  ],
+  "map": [
+    {
+      "id": "c10_map01",
+      "name": "Campaign Footprint",
+      "status": "NINE PRIOR LOCATIONS",
+      "color": "#00c3ff",
+      "notes": "Every location visited across Cases 001–009, plotted together for the first time.",
+      "pings": [
+        {
+          "time": "Case 001",
+          "loc": "Lagos",
+          "x": 45,
+          "y": 45
+        },
+        {
+          "time": "Case 002",
+          "loc": "São Paulo",
+          "x": 30,
+          "y": 70
+        },
+        {
+          "time": "Case 003",
+          "loc": "Manila",
+          "x": 80,
+          "y": 50
+        },
+        {
+          "time": "Case 004",
+          "loc": "Ushuaia",
+          "x": 32,
+          "y": 90
+        },
+        {
+          "time": "Case 005",
+          "loc": "Busan",
+          "x": 85,
+          "y": 35
+        },
+        {
+          "time": "Case 006",
+          "loc": "Doha",
+          "x": 60,
+          "y": 48
+        },
+        {
+          "time": "Case 007",
+          "loc": "Vienna",
+          "x": 52,
+          "y": 28
+        },
+        {
+          "time": "Case 008",
+          "loc": "Toronto",
+          "x": 22,
+          "y": 30
+        },
+        {
+          "time": "Case 009",
+          "loc": "Nairobi",
+          "x": 58,
+          "y": 58
+        },
+        {
+          "time": "Case 010",
+          "loc": "Brussels",
+          "x": 50,
+          "y": 25
+        }
+      ]
+    }
+  ],
+  "forensics": {
+    "afis": {
+      "EVID-AMSEL-09": {
+        "name": "Viktor Amsel",
+        "recordId": "LOOM-OPS-DIRECTOR"
+      }
+    },
+    "hash": {
+      "TK-5F3C9A": {
+        "origin": "Case 001 — Apapa resale-ledger toolkit",
+        "payload": "Fourth and final confirmed hit, closing the toolkit chain across Cases 001/005/007/008."
+      }
+    },
+    "chem": {},
+    "recover": {
+      "KESSLER-MEMO-FINAL": {
+        "recoveryKey": "RENEWABLE-INSTABILITY",
+        "corruptedPreview": "1nst4bility is th3 0nly ... [SIGNAL DEGRADED] ... n3v3r m4nufactur3d a s1ngl3 li3 ...",
+        "recoveredContent": "Instability is the only truly renewable resource. The Underwriters were never buying secrecy. They were buying scheduling. I never manufactured a single lie — I only automated the identification of real, exploitable weaknesses that already existed.",
+        "resultingFlag": "MEMO_CHAIN_COMPLETE"
+      }
+    }
+  },
+  "timeline": [
+    {
+      "date": "2014-03-01",
+      "time": "—",
+      "category": "access",
+      "title": "Earliest Recorded Access (Case 004)",
+      "text": "The full campaign's earliest dated event.",
+      "source": "Cross-Case Archive"
+    },
+    {
+      "date": "2026-01-05",
+      "time": "—",
+      "category": "system",
+      "title": "Case 001 — The Loading Dock",
+      "text": "Toolkit signature TK-5F3C9A first appears.",
+      "source": "Cross-Case Archive"
+    },
+    {
+      "date": "2026-01-15",
+      "time": "—",
+      "category": "system",
+      "title": "Case 005 — Busan Recall Staged",
+      "text": "First confirmed toolkit match.",
+      "source": "Cross-Case Archive"
+    },
+    {
+      "date": "2026-04-19",
+      "time": "22:30",
+      "category": "access",
+      "title": "Case 007 — Vienna Death Staged",
+      "text": "Second confirmed toolkit match.",
+      "source": "Cross-Case Archive"
+    },
+    {
+      "date": "2026-06-02",
+      "time": "02:14",
+      "category": "system",
+      "title": "Case 008 — Toronto Attack",
+      "text": "Third confirmed toolkit match.",
+      "source": "Cross-Case Archive"
+    },
+    {
+      "date": "2026-07-30",
+      "time": "—",
+      "category": "access",
+      "title": "Case 009 — Amsel Badge Scan",
+      "text": "Physical presence confirmed at Nairobi ground station.",
+      "source": "Cross-Case Archive"
+    },
+    {
+      "date": "2026-08-05",
+      "time": "—",
+      "category": "system",
+      "title": "Case 010 — Final Submission Window",
+      "text": "The full campaign chronology, visible on one combined view for the first time.",
+      "source": "HER STORY Analysis"
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "c10_puzzle01",
+      "triggerCommand": "decrypt kessler_memo.enc RENEWABLE-INSTABILITY",
+      "successOutput": "SUCCESS.\n\n[OK] Encrypted memo container opened.\nFile-ID for reconstruction: KESSLER-MEMO-FINAL\n\n>> Take this to Forensics / RECOVER to complete the memo chain. <<"
+    },
+    {
+      "id": "c10_puzzle02",
+      "triggerCommand": "archive query --manifest COR-19",
+      "resultingFlag": "FINAL_LOG_UNLOCKED",
+      "successOutput": "QUERY COMPLETE.\n\nOne further record found, filed after this submission closes.\n\n>> NEW EVIDENCE 'Terminal Log — Post-Submission' UNLOCKED IN CASE FILES <<"
+    }
+  ],
+  "terminalFiles": {
+    "kessler_memo.enc": {
+      "locked": true,
+      "password": "RENEWABLE-INSTABILITY",
+      "content": "Refer to Forensics RECOVER for the reconstructed memo.",
+      "type": "encrypted"
+    }
+  },
+  "suspects": [
+    {
+      "id": "c10_s01",
+      "name": "Dr. Farida Kessler",
+      "role": "Founder, Corvid Systems — \"the Architect\"",
+      "status": "Active Suspect",
+      "occupation": "Corvid Systems",
+      "threat": "Maximum",
+      "notes": "Never selectable as a suspect before this case. Broke no single codified law — the submission must indict the architecture, not one act.",
+      "aliases": [
+        "research designation, Case 004: F. Kessler"
+      ],
+      "devices": [],
+      "locations": [
+        "Brussels"
+      ]
+    }
+  ],
+  "solution": {
+    "culpritId": "c10_s01",
+    "evidenceIds": [
+      "c10_ev02",
+      "c1_ev03",
+      "c2_ev03",
+      "c3_ev04",
+      "c4_ev03",
+      "c5_ev05",
+      "c6_ev05",
+      "c7_ev04",
+      "c8_ev03",
+      "c9_ev06"
+    ],
+    "successMessage": "No single piece of this ever would have held. Together, bundled from nine cases you closed one at a time, it draws exactly what it needed to: not a crime, a design. The CRSB, Ashcroft's own clients, and HER STORY's institutional partners sever ties with Corvid Systems simultaneously. LOOM survives, diminished and unfunded. Kessler disappears from every system you have access to.",
+    "nextCase": "END_OF_CAMPAIGN",
+    "unlocks": []
+  },
+  "narrativeBeats": {
+    "onDocument": {
+      "c10_ev02": "She never manufactured a single lie. That's almost worse than if she had."
+    },
+    "onThread": {},
+    "onFlag": {
+      "MEMO_CHAIN_COMPLETE": "The whole philosophy, in her own words. Instability, sold as a subscription."
+    },
+    "onBookmark": {
+      "c10_ev04": "Bookmarked. A new COR-19 entry, filed after this closes, somewhere you've never been. Case 010 doesn't feel like an ending so much as a pause."
+    },
+    "onSubmitSuccess": "Kessler isn't arrested — nothing you found does that to a system. But the standards machinery Lindgren died defending finally does its job. It's a win. It's just not a clean one. Somewhere, a chalk-marked crate from Case 001 still feels a little too convenient to have been luck."
+  }
+}

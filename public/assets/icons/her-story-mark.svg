@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="HER STORY">
+  <!-- HER STORY mark v3 — a magnifying glass (investigation) drawn twice,
+       the second copy shifted diagonally off the first — a double-
+       exposure/registration effect. Single flat white (#FFFFFF), no
+       gradients/second colors, transparent background. The back copy is
+       a touch thinner/smaller so the foreground copy still reads as the
+       "true" glass and the mark doesn't collapse into noise at small
+       sizes. -->
+  <g fill="none" stroke="#FFFFFF" stroke-linecap="round">
+    <circle cx="34" cy="34" r="20" stroke-width="7"/>
+    <line x1="48" y1="48" x2="63" y2="63" stroke-width="7"/>
+  </g>
+  <g fill="none" stroke="#FFFFFF" stroke-linecap="round">
+    <circle cx="47" cy="47" r="20" stroke-width="10"/>
+    <line x1="61.5" y1="61.5" x2="79" y2="79" stroke-width="10"/>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+
+
+.trm-s1 {
+    flex: 1; background: var(--term-bg); padding: 20px; font-family: var(--font-mono); color: var(--term-green); font-size: 13px; display: flex; flex-direction: column; overflow: hidden; height: 100%;
+}
+
+.trm-s2 {
+    flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; word-break: break-all;
+}
+
+.trm-s3 {
+    display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+}
+
+.trm-s4 {
+    color: var(--term-green); font-weight: bold;
+}
+
+.trm-s5 {
+    flex: 1; background: transparent; border: none; color: var(--term-green); font-family: var(--font-mono); font-size: 13px; outline: none; caret-color: var(--term-green);
+}

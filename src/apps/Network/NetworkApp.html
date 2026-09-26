@@ -1,0 +1,21 @@
+<div class="dual-pane-app net-s1">
+    <div class="app-sidebar net-s2">
+        <div class="net-s3">
+            ACTIVE NODES
+        </div>
+        <div class="net-s4" id="net-node-list-{{id}}"></div>
+    </div>
+    <div class="app-content net-s5">
+        <div style="padding: 25px; {{stageBoxStyle}}">
+            <div class="net-s6">
+                NETWORK TOPOLOGY & TRAFFIC OBSERVER
+            </div>
+            {{graphSection}}
+            <div id="net-inspector-{{id}}" style="display: flex; flex-direction: column; gap: 20px; {{inspectorMarginStyle}}">
+                <div class="net-s7">
+                    {{inspectorInitialMessage}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

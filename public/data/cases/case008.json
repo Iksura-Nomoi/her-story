@@ -1,0 +1,187 @@
+{
+  "id": "case008",
+  "title": "The Borrowed Signature",
+  "evidence": [
+    {
+      "id": "c8_ev01",
+      "title": "Incident Report: Toronto Transit-Grid Cyberattack",
+      "requiredFlag": null,
+      "content": "A cyberattack on Toronto's transit-grid operator was publicly attributed to a state actor. Ally investigator <span class='evidence-link' data-evidence-id='c8_ev02'>Agent Priya Chandran</span> shared the attack payload with HER STORY before the public attribution went final."
+    },
+    {
+      "id": "c8_ev02",
+      "title": "Agent Priya Chandran: Shared Case Notes",
+      "requiredFlag": null,
+      "content": "\"Everyone upstairs wants to name the state actor and move on. Something about the payload signature bothers me. I'd rather be slow and right.\""
+    },
+    {
+      "id": "c8_ev03",
+      "title": "Attack Payload — Registry Match",
+      "requiredFlag": null,
+      "content": "Hash Compare returns a third confirmed hit on the same toolkit family logged in Cases 001, 005, and 007. This attack was not state-sponsored — it was staged by Corvid/LOOM operatives."
+    },
+    {
+      "id": "c8_ev04",
+      "title": "Recovered LOOM Internal Memo",
+      "requiredFlag": "MEMO_RECOVERED",
+      "content": "<strong>LOOM INTERNAL — FIELD CALIBRATION LOG</strong><br><br>Cases catalogued 001 through 007, logged as \"field calibration runs.\" Notation: \"Investigator response patterns nominal. Continue observation.\"<br><br>The player's own solved cases are logged here as data used to refine what LOOM could get away with."
+    },
+    {
+      "id": "c8_ev05",
+      "title": "Emergency Infrastructure-Access Legislation Draft",
+      "requiredFlag": null,
+      "content": "Proposed emergency legislation granting LOOM-class predictive systems privileged infrastructure access, filed in the days immediately following the attack. See Timeline for the exact date gap."
+    }
+  ],
+  "messages": [
+    {
+      "id": "c8_thread01",
+      "contact": "Renata Souza",
+      "role": "HER STORY Handler",
+      "chat": [
+        {
+          "sender": "Renata",
+          "time": "15:00",
+          "text": "I found our intake logs. Someone's been suggesting which cases get routed to you. I don't think all of those calls were mine."
+        }
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": "c8_img01",
+      "name": "grid_control_desk.jpg",
+      "type": "IMAGE",
+      "content": "<img src=\"assets/case-images/c8_img01.jpg\" style=\"width:100%;height:100%;object-fit:contain;display:block;\">",
+      "metadata": {
+        "Device": "Chandran Field Capture",
+        "Timestamp": "—",
+        "Location": "Toronto Transit-Grid Control Room"
+      }
+    },
+    {
+      "id": "c8_img02",
+      "name": "attacker_desktop.jpg",
+      "type": "IMAGE",
+      "content": "<img src=\"assets/case-images/c8_img02.jpg\" style=\"width:100%;height:100%;object-fit:contain;display:block;\">",
+      "metadata": {
+        "Device": "Forensic Image Capture",
+        "Timestamp": "—",
+        "Note": "Attacker staging environment, recovered post-incident"
+      }
+    }
+  ],
+  "forensics": {
+    "afis": {},
+    "hash": {
+      "TK-5F3C9A": {
+        "origin": "Case 001 — Apapa resale-ledger toolkit",
+        "payload": "Third confirmed hit, same toolkit family, this time on the Toronto attack payload."
+      }
+    },
+    "chem": {},
+    "recover": {
+      "LOOM-MEMO-CAL07": {
+        "recoveryKey": "FIELD-CALIBRATION-07",
+        "corruptedPreview": "LOOM INT3RNAL ... c4libration l0g ... c4s3s 001–007 ... [SIGNAL DEGRADED]",
+        "recoveredContent": "LOOM INTERNAL — FIELD CALIBRATION LOG. Cases catalogued 001 through 007, logged as \"field calibration runs.\" Notation: \"Investigator response patterns nominal. Continue observation.\"",
+        "resultingFlag": "MEMO_RECOVERED"
+      }
+    }
+  },
+  "timeline": [
+    {
+      "date": "2026-06-02",
+      "time": "02:14",
+      "category": "system",
+      "title": "Transit-Grid Attack Executed",
+      "text": "Payload deployed against the transit-grid operator, initially attributed to a state actor.",
+      "source": "Incident Log"
+    },
+    {
+      "date": "2026-06-08",
+      "time": "09:00",
+      "category": "message",
+      "title": "Emergency Legislation Filed",
+      "text": "Draft legislation granting LOOM-class systems privileged infrastructure access is filed — six days after the attack it responds to.",
+      "source": "Legislative Filing"
+    }
+  ],
+  "archive": [
+    {
+      "id": "c8_arch01",
+      "title": "LOOM Internal Memo — Field Calibration Log",
+      "status": "RECOVERED",
+      "date": "2026-05-01",
+      "summary": "Internal LOOM documentation cataloguing Cases 001–007 as calibration runs.",
+      "commentary": "Cross-references the same device-wipe toolkit signature recovered at the Case 007 scene.",
+      "relatedTo": [
+        "c8_arch02"
+      ]
+    },
+    {
+      "id": "c8_arch02",
+      "title": "Case 007 Device-Wipe Record (Cross-Reference)",
+      "status": "REFERENCE",
+      "date": "2026-04-19",
+      "summary": "The device-wipe utility hash from the Vienna scene, cross-filed here for the registry match.",
+      "commentary": "Same TK-5F3C9A signature confirmed a third time against this attack's payload.",
+      "relatedTo": [
+        "c8_arch01"
+      ]
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "c8_puzzle01",
+      "triggerCommand": "decrypt loom_memo.enc FIELD-CALIBRATION-07",
+      "successOutput": "SUCCESS.\n\n[OK] Encrypted memo container opened.\nFile-ID for reconstruction: LOOM-MEMO-CAL07\n\n>> Take this to Forensics / RECOVER. <<"
+    }
+  ],
+  "terminalFiles": {
+    "loom_memo.enc": {
+      "locked": true,
+      "password": "FIELD-CALIBRATION-07",
+      "content": "Refer to Forensics RECOVER for the reconstructed memo.",
+      "type": "encrypted"
+    }
+  },
+  "suspects": [
+    {
+      "id": "c8_s01_org",
+      "name": "Corvid Systems / LOOM Operations",
+      "role": "Organization",
+      "status": "Active Suspect Entity",
+      "occupation": "Predictive-Continuity Protocol Operator",
+      "threat": "Severe",
+      "notes": "Third confirmed toolkit hash match. Attack staged to justify emergency legislation granting LOOM-class systems infrastructure access.",
+      "aliases": [
+        "LOOM"
+      ],
+      "devices": [],
+      "locations": [
+        "Toronto"
+      ]
+    }
+  ],
+  "solution": {
+    "culpritId": "c8_s01_org",
+    "evidenceId": "c8_ev03",
+    "successMessage": "Third hit on the same hash, same family, same hands. The state actor didn't do this — Corvid did, and the timing proves why: an attack, then six days later, a bill asking for exactly the access this attack made urgent. Chandran's instinct to be slow and right was correct.",
+    "nextCase": "case009",
+    "unlocks": []
+  },
+  "narrativeBeats": {
+    "onDocument": {
+      "c8_ev04": "Cases 1 through 7, logged as calibration runs. That's not paranoia. That's their own filing system."
+    },
+    "onThread": {},
+    "onFlag": {
+      "MEMO_RECOVERED": "Everything we've solved so far might have been a controlled test, not a real investigation. Or it might have been both."
+    },
+    "onBookmark": {
+      "c8_ev04": "Bookmarked. Need to know how far back the calibration logging goes."
+    },
+    "onSubmitSuccess": "A state actor is quietly exonerated. Corvid/LOOM is named as the true operator. Renata's message about the intake logs is still sitting there, unanswered."
+  }
+}

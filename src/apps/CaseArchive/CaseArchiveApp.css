@@ -1,0 +1,17 @@
+
+
+.cas-s1 {
+    display:flex; flex-direction:column; height:100%; font-family: var(--font-mono);
+}
+
+.cas-s2 {
+    padding: 16px 20px; border-bottom: 1px solid var(--border-subtle); color: var(--accent-blue); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-size: 12px;
+}
+
+.cas-s3 {
+    flex:1; overflow-y:auto; padding: 14px;
+}
+
+.cas-s4 {
+    padding: 12px 20px; border-top: 1px solid var(--border-subtle); font-size: 11px; color: var(--text-muted);
+}

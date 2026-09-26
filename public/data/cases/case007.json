@@ -1,0 +1,179 @@
+{
+  "id": "case007",
+  "title": "The Vienna Clause",
+  "evidence": [
+    {
+      "id": "c7_ev01",
+      "title": "Incident Report: CRSB Reviewer Death",
+      "requiredFlag": null,
+      "content": "Dr. Petra Lindgren, a reviewer at the Continuity & Relief Standards Board, died hours before she was due to flag a Corvid protocol — internally named <strong>LOOM</strong> — for an ethics review. Ruled an accident."
+    },
+    {
+      "id": "c7_ev02",
+      "title": "Lindgren's Unsent Ethics-Review Draft",
+      "requiredFlag": "REPORT_UNLOCKED",
+      "content": "<strong>DRAFT — NOT FILED</strong><br><br>\"LOOM does not merely gather disaster-response data. It issues recommendations predicting which small failures — thefts, leaks, sabotages — most effectively move a market or policy outcome. This is not risk analysis. This is a menu.\""
+    },
+    {
+      "id": "c7_ev03",
+      "title": "Building Access Log — Night of Death",
+      "requiredFlag": null,
+      "content": "Lindgren's badge logged an exit from the CRSB building. See Timeline for the exact sequence against her phone's final message."
+    },
+    {
+      "id": "c7_ev04",
+      "title": "Device-Wipe Utility — Recovered at Scene",
+      "requiredFlag": null,
+      "content": "Forensic recovery of a utility found on-site, used to wipe Lindgren's personal device after her death. Hash Compare returns a second confirmed hit against the same toolkit family first logged in Case 001, matched again in Case 005."
+    }
+  ],
+  "messages": [
+    {
+      "id": "c7_thread01",
+      "contact": "Renata Souza",
+      "role": "HER STORY Handler",
+      "chat": [
+        {
+          "sender": "Renata",
+          "time": "06:30",
+          "text": "They killed someone to protect a recommendation engine's output. This isn't about hiding a crime anymore — it's about controlling what happens next. Every case we've closed might have been exactly that: what was scheduled to happen next."
+        }
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": "c7_img01",
+      "name": "lindgren_note.jpg",
+      "type": "IMAGE",
+      "content": "<img src=\"assets/case-images/c7_img01.jpg\" style=\"width:100%;height:100%;object-fit:contain;display:block;\">",
+      "metadata": {
+        "Device": "Personal Notebook Scan",
+        "Timestamp": "—",
+        "Location": "Lindgren's CRSB office"
+      }
+    }
+  ],
+  "cctv": [
+    {
+      "id": "c7_cam01",
+      "name": "CRSB Rear Corridor",
+      "duration": 50,
+      "clueStart": 20,
+      "clueEnd": 40,
+      "normalText": "REAR CORRIDOR — routine, empty at this hour.",
+      "clueText": "<span style='color:var(--status-warning);font-weight:bold;'>[STAGED SCENE]</span><br><br>No third party visible in the corridor during the badge-exit window. Whatever happened, it wasn't a struggle anyone on this camera witnessed — the scene was arranged after the fact, not during it."
+    }
+  ],
+  "network": [
+    {
+      "id": "c7_node01",
+      "name": "Vault_Secure_Node",
+      "type": "Air-Gapped Access Point",
+      "status": "Compromised",
+      "ip": "—",
+      "traffic": "—",
+      "x": 50,
+      "y": 50,
+      "desc": "Location of the wiped personal device, recovered post-mortem."
+    }
+  ],
+  "forensics": {
+    "afis": {},
+    "hash": {
+      "TK-5F3C9A": {
+        "origin": "Case 001 — Apapa resale-ledger toolkit",
+        "payload": "Same encryption/wipe toolkit family. Second confirmed hit, this time on a device-wipe utility found at a death scene.",
+        "resultingFlag": "HASH_MATCHED_2"
+      }
+    },
+    "chem": {},
+    "recover": {}
+  },
+  "timeline": [
+    {
+      "time": "22:41",
+      "category": "message",
+      "title": "Lindgren's Last Message Sent",
+      "text": "\"Filing the LOOM ethics flag first thing tomorrow. Don't let me forget.\" — sent to a CRSB colleague.",
+      "source": "Phone Records"
+    },
+    {
+      "time": "22:30",
+      "category": "access",
+      "title": "Badge Exit Logged",
+      "text": "Lindgren's building badge logs an exit — eleven minutes BEFORE her own phone sent its last message.",
+      "source": "CRSB Badge System"
+    },
+    {
+      "time": "23:10",
+      "category": "cctv",
+      "title": "Rear Corridor, Empty",
+      "text": "No third party visible during the relevant window.",
+      "source": "CRSB Rear Corridor Cam"
+    }
+  ],
+  "archive": [
+    {
+      "id": "c7_arch01",
+      "title": "CRSB Ethics Review Intake Rules",
+      "status": "REFERENCE",
+      "date": "2023-01-10",
+      "summary": "Standard procedure for flagging a member protocol for ethics review.",
+      "commentary": "Requires the reviewer's own filed report — which Lindgren never got to submit.",
+      "relatedTo": []
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "c7_puzzle01",
+      "triggerCommand": "decrypt loom_protocol.enc VIENNA-CLAUSE-07",
+      "resultingFlag": "REPORT_UNLOCKED",
+      "successOutput": "SUCCESS.\n\n[OK] Draft ethics review recovered.\n\n>> NEW EVIDENCE 'Lindgren's Unsent Ethics-Review Draft' UNLOCKED IN CASE FILES <<\n>> LOOM is now confirmed by name. <<"
+    }
+  ],
+  "terminalFiles": {
+    "loom_protocol.enc": {
+      "locked": true,
+      "password": "VIENNA-CLAUSE-07",
+      "content": "Refer to Case Files for the unlocked draft.",
+      "type": "encrypted"
+    }
+  },
+  "suspects": [
+    {
+      "id": "c7_s01_org",
+      "name": "Ashcroft Maritime Security",
+      "role": "Organization",
+      "status": "Active Suspect Entity",
+      "occupation": "Private Maritime & Asset-Protection Contractor",
+      "threat": "Severe",
+      "notes": "Device-wipe utility at the scene matches the same toolkit family confirmed in Cases 001 and 005 — the campaign's second confirmed registry hit.",
+      "aliases": [],
+      "devices": [],
+      "locations": [
+        "Vienna"
+      ]
+    }
+  ],
+  "solution": {
+    "culpritId": "c7_s01_org",
+    "evidenceId": "c7_ev04",
+    "successMessage": "Eleven minutes. That's the whole case — a badge exit logged eleven minutes before a phone sent a message from inside a building its owner had already, on paper, left. Nobody stages a scene that carefully by accident. The wipe-utility hash closes it: same toolkit, same hands, two cases apart.",
+    "nextCase": "case008",
+    "unlocks": []
+  },
+  "narrativeBeats": {
+    "onDocument": {
+      "c7_ev02": "LOOM isn't just data collection. It's a menu of which disasters to schedule. Every case so far might be an order off that menu."
+    },
+    "onThread": {},
+    "onFlag": {
+      "HASH_MATCHED_2": "Second hit on the same toolkit. Apapa, Busan, now Vienna. This isn't a pattern anymore — it's an inventory."
+    },
+    "onBookmark": {
+      "c7_ev02": "Bookmarked. The word LOOM matters now. It didn't yesterday."
+    },
+    "onSubmitSuccess": "Submission proves murder and puts LOOM on the record by name for the first time. Renata doesn't say 'good work' this time."
+  }
+}

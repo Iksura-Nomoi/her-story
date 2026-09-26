@@ -1,0 +1,79 @@
+/* --- Premium Motion & Interactions --- */
+
+/* Boot Sequence Keyframes */
+.boot-line {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: bootReveal 0.4s var(--ease-out-expo) forwards;
+}
+.boot-line:nth-child(1) { animation-delay: 0.2s; }
+.boot-line:nth-child(2) { animation-delay: 0.8s; }
+.boot-line:nth-child(3) { animation-delay: 1.2s; }
+.boot-line:nth-child(4) { animation-delay: 1.8s; }
+.boot-line:nth-child(5) { animation-delay: 2.4s; }
+.boot-line:nth-child(6) { animation-delay: 2.6s; }
+
+@keyframes bootReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.blink-cursor {
+    animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Layer Transitions */
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s var(--ease-in-out);
+}
+
+.fade-in {
+    animation: fadeInScale 1s var(--ease-out-expo) forwards;
+}
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(1.02);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Generic content fade-in, used inline by most apps
+   (Network/Archive/Suspects/CaseFiles/Forensics/Messages/Timeline/Locker/
+   Media/DesktopManager sticky notes) via style="animation: fadeIn ...".
+   The keyframes were missing, so none of those fades ever actually ran. */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Dynamic Environmental Glow (ReactBits inspired) */
+.cursor-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(
+        600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+        rgba(255, 255, 255, 0.03), 
+        transparent 40%
+    );
+    transition: opacity var(--transition-smooth);
+}
+
+@keyframes dash {
+    to { stroke-dashoffset: -1000; }
+}

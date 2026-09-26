@@ -1,0 +1,310 @@
+/* CSS Reset & Global Variables */
+:root {
+    /* Color Palette */
+    --bg-void: #0A0A0C;
+    --bg-surface: #121215;
+    --border-subtle: #2A2A30;
+    --text-primary: #E4E4E6;
+    --text-secondary: #A0A0A6;
+    --text-muted: rgba(228, 228, 230, 0.5);
+    
+    --accent-blue: #4A90E2;
+    --status-error: #D94848;
+    --status-success: #50E3C2;
+    --status-warning: #E3A03C;
+
+    /* Typography */
+    --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Motion Easing */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --transition-fast: 150ms var(--ease-out-expo);
+    --transition-smooth: 400ms var(--ease-out-expo);
+
+    /* Terminal App Palette */
+    --term-bg: #060a06;
+    --term-fg: #D6DCD4;
+    --term-green: #33ff5c;
+    --term-green-dim: #1f8f36;
+    --term-green-bright: #b6ffc2;
+    --term-red: #ff5c5c;
+    --term-amber: #ffc857;
+    --term-cyan: #6EE7E0;
+    --term-blue: #6FAEEA;
+    --term-muted: #7C8A7E;
+
+    --scanline-opacity: 0.6;
+}
+
+/* Preset OS Color Themes */
+html[data-theme="amber-crt"] {
+    --accent-blue: #ffc857;
+    --term-green: #ffc857;
+    --term-green-bright: #ffe49e;
+    --status-success: #ffc857;
+}
+
+html[data-theme="matrix-green"] {
+    --accent-blue: #33ff5c;
+    --term-green: #33ff5c;
+    --status-success: #33ff5c;
+}
+
+html[data-theme="cyberpunk"] {
+    --accent-blue: #00F0FF;
+    --status-error: #FF2A85;
+    --term-green: #00F0FF;
+    --status-success: #00F0FF;
+}
+
+html[data-theme="slate"] {
+    --accent-blue: #94A3B8;
+    --term-green: #CBD5E1;
+    --status-success: #94A3B8;
+}
+
+/* Font Scale Multipliers */
+html[data-font-scale="115"] {
+    font-size: 115%;
+}
+html[data-font-scale="130"] {
+    font-size: 130%;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Keyboard Focus Indication */
+:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+.desktop-icon:focus-visible,
+.app-icon:focus-visible,
+.os-window:focus-visible {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: -2px;
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.25);
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--bg-void);
+    color: var(--text-primary);
+    font-family: var(--font-ui);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    user-select: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--border-subtle);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+.fullscreen-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Scanline Overlay */
+.scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%, 
+        rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 100% 4px;
+    opacity: var(--scanline-opacity, 0.6);
+}
+
+/* CRT Vignette Effect */
+.vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9998;
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.7);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- Settings: CRT / accessibility toggles ---
+   SettingsApp already toggled these classes on <body>, but nothing ever
+   defined them, so "CRT Mode", "Screen Curvature" and "Reduce Motion" had
+   no visible effect. */
+body.crt-scanlines::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 100% 4px;
+    opacity: var(--scanline-opacity, 0.6);
+}
+
+body.crt-curvature::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+    box-shadow: inset 0 0 140px rgba(0, 0, 0, 0.75);
+    border-radius: 22px;
+}
+
+body.disable-animations *,
+body.disable-animations *::before,
+body.disable-animations *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
+}
+
+/* Tier-2 clearance: a subtle accent shift on the taskbar/system chrome. */
+body.tier-2 #taskbar {
+    border-right-color: var(--accent-blue);
+    box-shadow: inset -1px 0 0 rgba(74, 144, 226, 0.35);
+}
+
+/* Responsive Mobile Block */
+#mobile-block {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    background: #050608;
+    color: #e4e4e6;
+    font-family: var(--font-mono, monospace);
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    overflow: hidden;
+    animation: mobileBlockFlicker 6s infinite;
+}
+
+@keyframes mobileBlockFlicker {
+    0%, 96%, 100% { filter: brightness(1); }
+    97% { filter: brightness(0.85); }
+    98% { filter: brightness(1.05); }
+}
+
+.mobile-block-vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    box-shadow: inset 0 0 140px 40px rgba(0, 0, 0, 0.75);
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.mobile-block-scanlines {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.18) 0px,
+        rgba(0, 0, 0, 0.18) 1px,
+        transparent 2px,
+        transparent 3px
+    );
+    mix-blend-mode: multiply;
+}
+
+.mobile-block-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 380px;
+    text-align: center;
+}
+
+.mobile-block-mark {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 14px rgba(167, 239, 158, 0.45));
+}
+
+.mobile-block-tag {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    color: #a7ef9e;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.mobile-block-title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 14px;
+    color: #ffffff;
+}
+
+.mobile-block-body {
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(228, 228, 230, 0.75);
+    margin-bottom: 24px;
+}
+
+.mobile-block-footer {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: rgba(228, 228, 230, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 16px;
+    width: 100%;
+}
+
+@media (max-width: 768px), (max-height: 500px) {
+    #mobile-block {
+        display: flex !important;
+    }
+}

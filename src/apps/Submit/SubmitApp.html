@@ -1,0 +1,15 @@
+<div class="submit-container" id="submit-form-{{id}}">
+    <p class="sub-s1">Construct causality chain for final submission.</p>
+
+    <div class="form-group">
+        <label class="form-label">Primary Culprit</label>
+        <select class="os-select" id="select-suspect-{{id}}">
+            {{suspectOptions}}
+        </select>
+    </div>
+
+    {{evidenceFieldHtml}}
+
+    <button class="os-button" id="btn-submit-case-{{id}}">Submit Report</button>
+</div>
+<div class="submit-result hidden" id="submit-result-{{id}}"></div>

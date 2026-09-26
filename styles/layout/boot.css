@@ -1,0 +1,126 @@
+/* HER STORY Boot Sequence */
+
+#boot-sequence {
+    background: radial-gradient(ellipse at center, #0d0f10 0%, var(--bg-void) 70%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+/* Barrel/curvature illusion via a radial vignette + subtle inner shadow */
+#boot-sequence::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+    box-shadow: inset 0 0 140px 40px rgba(0, 0, 0, 0.75);
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+/* Scanlines */
+#boot-sequence::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 4;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.18) 0px,
+        rgba(0, 0, 0, 0.18) 1px,
+        transparent 2px,
+        transparent 3px
+    );
+    mix-blend-mode: multiply;
+    animation: bootScanlineDrift 9s linear infinite;
+}
+
+@keyframes bootScanlineDrift {
+    from { background-position-y: 0; }
+    to { background-position-y: 200px; }
+}
+
+.boot-terminal {
+    position: relative;
+    z-index: 2;
+    min-width: 420px;
+    max-width: 640px;
+    margin: 48px 0 0 56px;
+    text-align: left;
+    text-shadow: 0 0 6px rgba(228, 228, 230, 0.25);
+}
+
+.boot-terminal .boot-line {
+    animation: none; /* BootSequenceManager types lines in manually now */
+    opacity: 1;
+    transform: none;
+    white-space: pre;
+}
+
+.boot-caret {
+    display: inline-block;
+    width: 0.5em;
+    margin-left: 1px;
+    background: var(--text-primary);
+    animation: blink 0.9s step-end infinite;
+}
+
+/* Gentle constant flicker on the whole CRT layer */
+#boot-sequence {
+    animation: bootFlicker 6s infinite;
+}
+@keyframes bootFlicker {
+    0%, 96%, 100% { filter: brightness(1); }
+    97% { filter: brightness(1.04); }
+    98% { filter: brightness(0.97); }
+}
+
+/* Randomized short glitch bursts, toggled by BootSequenceManager */
+.boot-glitch-pulse .boot-terminal {
+    animation: bootGlitchJitter 0.12s steps(2, end);
+    text-shadow:
+        1px 0 0 rgba(217, 72, 72, 0.5),
+        -1px 0 0 rgba(80, 227, 194, 0.4),
+        0 0 6px rgba(228, 228, 230, 0.25);
+}
+.boot-glitch-pulse::after {
+    opacity: 0.4;
+}
+@keyframes bootGlitchJitter {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-2px, 1px); }
+    100% { transform: translate(1px, 0); }
+}
+
+/* Static noise wash, very low opacity so it reads as texture not clutter */
+.boot-glitch-pulse::before {
+    background:
+        radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.55) 100%),
+        repeating-conic-gradient(
+            from 0deg,
+            rgba(255, 255, 255, 0.02) 0deg 1deg,
+            transparent 1deg 3deg
+        );
+}
+
+.skip-boot-btn {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    z-index: 100;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: opacity var(--transition-fast);
+}
+
+.skip-boot-btn:hover {
+    opacity: 0.8;
+}

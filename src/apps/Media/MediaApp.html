@@ -1,0 +1,35 @@
+<div class="dual-pane-app med-s1">
+    <div class="app-sidebar med-s2">
+        <div class="med-s3">
+            MOUNTED MEDIA
+        </div>
+        <div class="med-s4" id="media-list-{{id}}"></div>
+    </div>
+    <div class="app-content med-s5">
+        <div class="med-s6">
+            <div class="med-s7">
+                <span class="med-s8">ZOOM</span>
+                <input class="med-s9" type="range" id="media-zoom-{{id}}" min="1" max="3" step="0.1" value="1" disabled>
+            </div>
+            <div class="med-s7">
+                <span class="med-s8">BRIGHTNESS</span>
+                <input class="med-s9" type="range" id="media-bright-{{id}}" min="0.5" max="3" step="0.1" value="1" disabled>
+            </div>
+            <div class="med-s7">
+                <span class="med-s8">CONTRAST</span>
+                <input class="med-s9" type="range" id="media-contrast-{{id}}" min="0.5" max="3" step="0.1" value="1" disabled>
+            </div>
+            <button id="media-reset-{{id}}" class="os-button med-s10" disabled>RESET</button>
+        </div>
+
+        <div class="med-s11" id="media-stage-{{id}}">
+            <span class="med-s12">{{initialMessage}}</span>
+            <div class="med-s13" id="media-content-{{id}}"></div>
+            <div class="med-s14" id="media-reveal-{{id}}"></div>
+            <div class="med-s15" id="media-exif-{{id}}">
+                <div class="med-s16">EXIF // METADATA</div>
+                <div class="med-s17" id="media-exif-data-{{id}}"></div>
+            </div>
+        </div>
+    </div>
+</div>

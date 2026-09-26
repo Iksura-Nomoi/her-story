@@ -1,0 +1,13 @@
+
+
+.hlp-s1 {
+    display:flex; gap:4px; padding: 12px 24px 0; border-bottom: 1px solid var(--border-subtle); flex-shrink:0;
+}
+
+.hlp-s2 {
+    padding: 6px 14px; font-size: 12px;
+}
+
+.hlp-s3 {
+    padding: 24px; font-family: var(--font-mono); max-width: 720px; overflow-y: auto; flex: 1;
+}

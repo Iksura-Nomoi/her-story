@@ -1,0 +1,201 @@
+{
+  "id": "case006",
+  "title": "The Silent Wire",
+  "evidence": [
+    {
+      "id": "c6_ev01",
+      "title": "Incident Report: Free-Zone Wire Transfer",
+      "requiredFlag": null,
+      "content": "Diplomatic courier <span class='evidence-link' data-evidence-id='c6_ev02'>Rashid Al-Suwaidi</span> used his own credentials to authorize a large wire transfer through a Doha free-zone bank. He claims he was blackmailed into it."
+    },
+    {
+      "id": "c6_ev02",
+      "title": "Rashid Al-Suwaidi: Coerced Statement",
+      "requiredFlag": null,
+      "content": "\"They had photos of my family. I was told exactly which account, exactly which day. I didn't ask questions. I've never even met the person who told me what to do — everything came through an intermediary.\""
+    },
+    {
+      "id": "c6_ev03",
+      "title": "Wire Memo Fragment",
+      "requiredFlag": null,
+      "content": "Transaction reference <strong>COR-1942-R</strong> reuses the COR-19 code family seen in Cases 001–003. Beneficiary account is administered by <strong>Ashcroft Maritime Security</strong>, listing itself as an \"asset protection\" contractor."
+    },
+    {
+      "id": "c6_ev04",
+      "title": "Ashcroft Maritime Security — Client Filing",
+      "requiredFlag": "WIRE_TRACED",
+      "content": "Contract schedule lists \"Corvid Systems Advisory\" as a retained client for \"field asset protection.\" First appearance of a private security contractor tied directly to Corvid."
+    },
+    {
+      "id": "c6_ev05",
+      "title": "Protection Referral — Requires Confirmation",
+      "requiredFlag": "COERCION_CONFIRMED",
+      "content": "HER STORY protective-referral document for Al-Suwaidi. This case's actual objective isn't convicting him — it's building the case against Ashcroft while keeping him off any public record that could expose him to retaliation."
+    }
+  ],
+  "messages": [
+    {
+      "id": "c6_thread01",
+      "contact": "Renata Souza",
+      "role": "HER STORY Handler",
+      "chat": [
+        {
+          "sender": "Renata",
+          "time": "13:05",
+          "text": "International capital, a private security contractor, and a diplomat scared enough to talk. Whoever's funding this has real money and real reach. I need to know who's paying."
+        }
+      ]
+    },
+    {
+      "id": "c6_thread02",
+      "contact": "Rashid Al-Suwaidi",
+      "role": "Coerced Testimony Thread",
+      "chat": [
+        {
+          "sender": "Rashid",
+          "time": "22:40",
+          "text": "I want this on record somewhere that isn't public. If Ashcroft finds out I talked, my family isn't safe."
+        },
+        {
+          "sender": "Rashid",
+          "time": "22:42",
+          "text": "There's a name people used once, off the record — 'the Underwriters.' Nobody explained it. I don't think it exists on paper anywhere."
+        }
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": "c6_img01",
+      "name": "suwaidi_residence.jpg",
+      "type": "IMAGE",
+      "content": "<img src=\"assets/case-images/c6_img01.jpg\" style=\"width:100%;height:100%;object-fit:contain;display:block;\">",
+      "metadata": {
+        "Device": "Field Surveillance",
+        "Timestamp": "—",
+        "Location": "Al-Suwaidi residence, Doha"
+      }
+    }
+  ],
+  "network": [
+    {
+      "id": "c6_node01",
+      "name": "Al-Suwaidi Credentials",
+      "type": "Diplomatic Access",
+      "status": "Compromised",
+      "ip": "—",
+      "traffic": "—",
+      "x": 20,
+      "y": 50,
+      "desc": "Used under coercion to authorize the transfer."
+    },
+    {
+      "id": "c6_node02",
+      "name": "Free-Zone Bank Account",
+      "type": "Financial Node",
+      "status": "Compromised",
+      "ip": "—",
+      "traffic": "large, single transfer",
+      "x": 50,
+      "y": 50,
+      "desc": "Beneficiary administered by Ashcroft Maritime Security."
+    },
+    {
+      "id": "c6_node03",
+      "name": "Ashcroft Maritime Security",
+      "type": "Contractor Entity",
+      "status": "Malicious",
+      "ip": "—",
+      "traffic": "—",
+      "x": 80,
+      "y": 50,
+      "desc": "Lists Corvid Systems Advisory as a retained client for \"field asset protection.\""
+    }
+  ],
+  "networkConnections": [
+    {
+      "from": "c6_node01",
+      "to": "c6_node02",
+      "label": "coerced authorization"
+    },
+    {
+      "from": "c6_node02",
+      "to": "c6_node03",
+      "label": "beneficiary"
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "c6_puzzle01",
+      "triggerCommand": "trace COR-1942-R",
+      "resultingFlag": "WIRE_TRACED",
+      "successOutput": "TRACE COMPLETE.\n\nWire memo reference matches the COR-19 code family from prior cases.\nBeneficiary: Ashcroft Maritime Security.\n\n>> NEW EVIDENCE 'Ashcroft Maritime Security — Client Filing' UNLOCKED IN CASE FILES <<"
+    },
+    {
+      "id": "c6_puzzle02",
+      "triggerCommand": "decrypt protection_referral.enc SILENT-WIRE-06",
+      "resultingFlag": "COERCION_CONFIRMED",
+      "successOutput": "SUCCESS.\n\n[OK] Protective referral drafted.\n\n>> NEW EVIDENCE 'Protection Referral — Requires Confirmation' UNLOCKED IN CASE FILES <<"
+    }
+  ],
+  "terminalFiles": {
+    "protection_referral.enc": {
+      "locked": true,
+      "password": "SILENT-WIRE-06",
+      "content": "Refer to Case Files for the unlocked document.",
+      "type": "encrypted"
+    }
+  },
+  "suspects": [
+    {
+      "id": "c6_s01",
+      "name": "Rashid Al-Suwaidi",
+      "role": "Diplomatic Courier",
+      "status": "Coerced — Protect, Do Not Prosecute",
+      "occupation": "Diplomatic Courier Service",
+      "threat": "None",
+      "notes": "Blackmailed using threats against his family. The case's real objective is protecting him while building a case against Ashcroft.",
+      "aliases": [],
+      "devices": [],
+      "locations": [
+        "Doha"
+      ]
+    },
+    {
+      "id": "c6_s02_org",
+      "name": "Ashcroft Maritime Security",
+      "role": "Organization",
+      "status": "Active Suspect Entity",
+      "occupation": "Private Maritime & Asset-Protection Contractor",
+      "threat": "High",
+      "notes": "Retained client relationship with Corvid Systems Advisory. Administers the beneficiary account for the coerced wire transfer.",
+      "aliases": [],
+      "devices": [],
+      "locations": [
+        "Doha free-zone"
+      ]
+    }
+  ],
+  "solution": {
+    "culpritId": "c6_s02_org",
+    "evidenceId": "c6_ev05",
+    "successMessage": "Al-Suwaidi isn't the case. He's a man with a family and a threat hanging over both. Ashcroft is the case — the contractor that turned a diplomat's fear into a funding pipeline for Corvid. Submission protects him and names them.",
+    "nextCase": "case007",
+    "unlocks": []
+  },
+  "narrativeBeats": {
+    "onDocument": {
+      "c6_ev04": "Ashcroft. Private security, on retainer to Corvid. This has real money behind it now."
+    },
+    "onThread": {
+      "c6_thread02": "'The Underwriters.' First time that name's come up. Nobody's explained what it means. Worth remembering."
+    },
+    "onFlag": {
+      "COERCION_CONFIRMED": "Protect him. That's the job here, not convict him."
+    },
+    "onBookmark": {
+      "c6_ev04": "Bookmarked. Ashcroft Maritime Security — first named here, definitely not the last time."
+    },
+    "onSubmitSuccess": "Ashcroft's role goes on record. Al-Suwaidi doesn't. Renata flags the protective referral personally and says nothing else about it."
+  }
+}

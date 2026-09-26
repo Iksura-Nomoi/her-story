@@ -1,0 +1,69 @@
+
+
+.tln-s1 {
+    flex: 1; width: 100%; display: flex; font-family: var(--font-mono); overflow: hidden;
+}
+
+.tln-s2 {
+    width: 250px; display: flex; flex-direction: column; padding: 0; background: var(--bg-surface); border-right: 1px solid var(--border-subtle); flex-shrink: 0; z-index: 2;
+}
+
+.tln-s3 {
+    padding: 15px; border-bottom: 1px solid var(--border-subtle); color: var(--accent-blue); font-weight: bold; text-transform: uppercase; letter-spacing: 1px;
+}
+
+.tln-s4 {
+    padding: 15px; border-bottom: 1px solid var(--border-subtle);
+}
+
+.tln-s5 {
+    color: var(--text-secondary); font-size: 11px; margin-bottom: 8px;
+}
+
+.tln-s6 {
+    display: flex; gap: 10px; align-items: center;
+}
+
+.tln-s7 {
+    width: 100%; background: var(--bg-void); border: 1px solid var(--border-subtle); color: var(--text-primary); padding: 5px; font-family: var(--font-mono); outline: none;
+}
+
+.tln-s8 {
+    color: var(--text-muted);
+}
+
+.tln-s9 {
+    padding: 15px; display: flex; flex-direction: column; gap: 5px;
+}
+
+.tln-s10 {
+    color: var(--text-secondary); font-size: 11px; margin-bottom: 5px;
+}
+
+.tln-s11 {
+    margin-top: auto; padding: 15px; border-top: 1px solid var(--border-subtle);
+}
+
+.tln-s12 {
+    width: 100%; padding: 10px; background: rgba(0, 195, 255, 0.1); border: 1px solid var(--accent-blue); color: var(--accent-blue); font-weight: bold; cursor: pointer; transition: all 0.2s;
+}
+
+.tln-s13 {
+    flex: 1; display: flex; flex-direction: column; padding: 0; background: var(--bg-void); position: relative; overflow-y: auto;
+}
+
+.tln-s14 {
+    position: sticky; top: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); padding: 15px 25px; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; z-index: 10;
+}
+
+.tln-s15 {
+    color: var(--text-secondary); letter-spacing: 2px; font-size: 13px;
+}
+
+.tln-s16 {
+    color: var(--accent-blue); font-weight: bold; font-size: 13px;
+}
+
+.tln-s17 {
+    padding: 25px; display: flex; flex-direction: column; gap: 20px;
+}

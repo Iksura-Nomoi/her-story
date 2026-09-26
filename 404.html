@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Signal Lost // HER STORY</title>
+    <meta name="description" content="This page could not be found. Return to HER STORY, the browser-based investigation game.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://project-offset.vercel.app/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="HER STORY">
+    <meta property="og:url" content="https://project-offset.vercel.app/404.html">
+    <meta property="og:title" content="404 — Signal Lost // HER STORY">
+    <meta property="og:description" content="This page could not be found. Return to HER STORY, the browser-based investigation game.">
+    <meta property="og:image" content="https://project-offset.vercel.app/assets/og/og-image.png">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="404 — Signal Lost // HER STORY">
+    <meta name="twitter:description" content="This page could not be found. Return to HER STORY, the browser-based investigation game.">
+    <meta name="twitter:image" content="https://project-offset.vercel.app/assets/og/og-image.png">
+
+    <!-- Same HER STORY mark as index.html — see assets/icons/her-story-mark.svg. -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/her-story-mark.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/icon-16.png">
+    <link rel="shortcut icon" href="assets/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/icon-180.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* Standalone 404 Stylesheet */
+        :root {
+            --bg-void: #0A0A0C;
+            --border-subtle: #2A2A30;
+            --text-primary: #E4E4E6;
+            --text-muted: rgba(228, 228, 230, 0.5);
+            --accent-blue: #4A90E2;
+            --status-error: #D94848;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: var(--bg-void);
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background-image:
+                linear-gradient(rgba(74, 144, 226, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74, 144, 226, 0.05) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .panel {
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+        }
+        .mark {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 28px;
+            color: var(--text-primary);
+            opacity: 0.85;
+        }
+        .mark svg { width: 100%; height: 100%; display: block; }
+        .eyebrow {
+            color: var(--status-error);
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .eyebrow::before { content: '// '; color: var(--text-muted); }
+        h1 {
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 18px;
+        }
+        .code {
+            color: var(--accent-blue);
+        }
+        p {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+        .path {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            padding: 2px 8px;
+            color: var(--text-primary);
+            word-break: break-all;
+        }
+        a.home-btn {
+            display: inline-block;
+            background-color: rgba(74, 144, 226, 0.1);
+            color: var(--accent-blue);
+            border: 1px solid var(--accent-blue);
+            padding: 14px 28px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: all 150ms ease-out;
+        }
+        a.home-btn:hover {
+            background-color: var(--accent-blue);
+            color: var(--bg-void);
+        }
+        .footer-note {
+            margin-top: 28px;
+            color: var(--text-muted);
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <div class="mark" aria-hidden="true">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round">
+                <circle cx="34" cy="34" r="20" stroke-width="7"/>
+                <line x1="48" y1="48" x2="63" y2="63" stroke-width="7"/>
+                <circle cx="47" cy="47" r="20" stroke-width="10"/>
+                <line x1="61.5" y1="61.5" x2="79" y2="79" stroke-width="10"/>
+            </svg>
+        </div>
+
+        <div class="eyebrow">System Error</div>
+        <h1><span class="code">404</span> — Signal Lost</h1>
+        <p>
+            No record matches this address in KestrelOS. The file was
+            never indexed, was moved, or the link brought you somewhere
+            outside the investigation.<br><br>
+            Requested path: <span class="path" id="req-path">—</span>
+        </p>
+        <a class="home-btn" href="./index.html">Return to HER STORY</a>
+        <div class="footer-note">HER STORY // INVESTIGATION OPERATING ENVIRONMENT</div>
+    </div>
+
+    <script>
+        // Best-effort — just echoes whatever the browser actually
+        // requested so the message is a little more useful than generic
+        // copy. Falls back silently if it can't read it for any reason.
+        try {
+            document.getElementById('req-path').textContent = window.location.pathname + window.location.search;
+        } catch (e) {}
+    </script>
+</body>
+</html>

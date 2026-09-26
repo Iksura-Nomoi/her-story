@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — HER STORY</title>
+    <meta name="description" content="Privacy policy for HER STORY, a browser-based investigation game — what data is collected and how it's used.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" type="image/svg+xml" href="assets/icons/her-story-mark.svg">
+    <style>
+        :root {
+            --bg-void: #0A0A0C;
+            --bg-surface: #121215;
+            --border-subtle: #2A2A30;
+            --text-primary: #E4E4E6;
+            --text-secondary: #A0A0A6;
+            --text-muted: rgba(228, 228, 230, 0.5);
+            --accent-blue: #4A90E2;
+            --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: var(--bg-void);
+            color: var(--text-primary);
+            font-family: var(--font-ui);
+            line-height: 1.7;
+        }
+        .doc-wrap {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 80px 24px 120px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 40px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .back-link:hover { color: var(--accent-blue); border-color: var(--accent-blue); }
+        h1 {
+            font-family: var(--font-mono);
+            font-size: 28px;
+            letter-spacing: 1px;
+            color: var(--text-primary);
+            margin: 0 0 8px;
+            text-transform: uppercase;
+        }
+        .updated {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+            letter-spacing: 0.5px;
+        }
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 15px;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 40px 0 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        p, li { color: var(--text-secondary); font-size: 15px; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+        strong { color: var(--text-primary); }
+        a.inline { color: var(--accent-blue); text-decoration: none; }
+        a.inline:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="doc-wrap">
+        <a href="index.html" class="back-link">&larr; BACK TO HER STORY</a>
+
+        <h1>Privacy Policy</h1>
+        <div class="updated">Last updated: August 2026</div>
+
+        <p>HER STORY is a free, browser-based investigation game. This page explains what data the game touches and why — in plain terms, without the boilerplate.</p>
+
+        <h2>01 — What HER STORY Stores</h2>
+        <p>Your case progress, unlocked flags, collected evidence, and window preferences are saved so you can leave and come back to a case without losing your place. This save data is tied to your browser session and, where you've enabled it, synced via Firebase so you can pick up the same case from a different device.</p>
+
+        <h2>02 — What We Don't Collect</h2>
+        <ul>
+            <li>No email address, real name, or account sign-up is required to play.</li>
+            <li>No payment or financial information is collected — HER STORY is free.</li>
+            <li>No tracking pixels or ad networks are embedded in the game.</li>
+        </ul>
+
+        <h2>03 — Optional Operator Name</h2>
+        <p>If you choose to set an in-game "operator" name, that's a display label only — it isn't linked to your real identity and isn't used for anything beyond personalizing your session within the game itself.</p>
+
+        <h2>04 — Firebase (Firestore &amp; Analytics)</h2>
+        <p>HER STORY uses Google Firebase (Firestore) to store save data and Firebase Analytics to track high-level gameplay progression (such as starting or completing a case). This analytics data is strictly anonymized and used solely to balance puzzle difficulty by understanding where players get stuck. Firestore Security Rules restrict what any player's browser can read or write — you cannot see another player's save data, and the game cannot write arbitrary data beyond the specific fields it's designed to use.</p>
+
+        <h2>05 — Local Storage</h2>
+        <p>The game uses your browser's local/session storage to remember minor UI state (e.g. whether you've completed onboarding, window positions) so the experience feels consistent between visits. This data stays on your device and is not transmitted anywhere.</p>
+
+        <h2>06 — Changes to This Policy</h2>
+        <p>If this policy changes, the "Last updated" date at the top of this page will change too. Continued use of HER STORY after an update means you're okay with the current version.</p>
+
+        <h2>07 — Contact</h2>
+        <p>Questions about this policy or how HER STORY handles data can be raised on <a class="inline" href="https://github.com/mihsanalam/Her-Story" target="_blank" rel="noopener">GitHub</a>.</p>
+    </div>
+</body>
+</html>

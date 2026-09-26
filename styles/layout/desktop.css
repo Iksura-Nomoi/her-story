@@ -1,0 +1,558 @@
+/* --- The Prism Environment --- */
+
+#wallpaper-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.3s ease;
+}
+
+#desktop-environment {
+    display: flex;
+    background: var(--bg-void);
+    /* Subtle topographic/grid pattern could go here */
+}
+
+/* Taskbar */
+#taskbar {
+    width: 64px;
+    height: 100vh;
+    background-color: var(--bg-surface);
+    border-right: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 24px 0;
+    z-index: 100;
+}
+
+.taskbar-top {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Premium App Icons */
+.app-icon {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: color var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
+}
+
+.app-icon svg {
+    width: 22px;
+    height: 22px;
+    transition: transform var(--transition-fast);
+}
+
+/* Taskbar Logo Button */
+.taskbar-logo-btn {
+    color: rgba(167, 239, 158, 0.55);
+}
+.app-icon.taskbar-logo-btn:hover {
+    color: #A7EF9E;
+}
+
+.app-icon:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.app-icon:active svg {
+    transform: scale(0.9);
+}
+
+/* Dock running/minimized indicator — driven by BaseApp's APP_S */
+.app-icon.is-running::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+}
+
+.app-icon.is-running.is-minimized::after {
+    background: transparent;
+    border: 1px solid var(--accent-blue);
+    opacity: 0.7;
+}
+
+#taskbar-fullscreen-btn.is-active {
+    color: var(--accent-blue);
+    background: rgba(74, 144, 226, 0.12);
+}
+
+/* Notification Badge */
+.notification-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--status-error);
+    box-shadow: 0 0 8px rgba(217, 72, 72, 0.5);
+}
+
+/* Clock */
+#system-clock {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    letter-spacing: 1px;
+}
+
+/* Workspace */
+#workspace {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+}
+
+/* Boot & Login Specifics */
+.boot-terminal {
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    padding: 40px;
+    font-size: 13px;
+}
+.boot-line.highlight {
+    color: var(--text-primary);
+    margin-top: 16px;
+}
+
+#login-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.biometric-btn {
+    background: rgba(167, 239, 158, 0.05);
+    border: 1px solid rgba(167, 239, 158, 0.3);
+    border-radius: 3px;
+    padding: 13px 26px;
+    color: var(--text-secondary, #e4e6e4);
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.biometric-btn span {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.biometric-btn svg {
+    flex-shrink: 0;
+    display: block;
+}
+
+.biometric-btn:hover {
+    color: #ffffff;
+    border-color: #A7EF9E;
+    background: rgba(167, 239, 158, 0.1);
+    box-shadow: 0 0 20px rgba(167, 239, 158, 0.2);
+}
+
+/* Eyebrow/caption bracketing the login gate — matches the onbo */
+.login-eyebrow {
+    font-family: var(--font-mono);
+    color: var(--accent-blue);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+.login-caption {
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    font-size: 11px;
+    margin-top: 14px;
+    letter-spacing: 0.4px;
+}
+
+/* --- Taskbar: bottom cluster (settings / notifications / fullscreen / clock) ---
+   Was previously unstyled, so the buttons + clock fell back to default block
+   layout instead of the vertical, centered stack the rest of the taskbar uses. */
+.taskbar-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin-top: auto;
+}
+
+.taskbar-divider {
+    width: 28px;
+    height: 1px;
+    background: var(--border-subtle);
+    margin: 4px 0;
+    flex-shrink: 0;
+}
+
+/* Vertical system clock — centered under its own row so the rotated text
+   doesn't get clipped or pushed off-axis by the taskbar's flex column. */
+#system-clock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 46px;
+    padding: 4px 0;
+}
+
+/* --- Desktop icon grid --- */
+#desktop-icons {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+#desktop-icons.grid-visible {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-position: 24px 24px;
+    background-size: 96px 104px;
+}
+
+#desktop-icons.is-refreshing {
+    animation: desktop-refresh-flash 300ms ease-out;
+}
+
+@keyframes desktop-refresh-flash {
+    0% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+.desktop-icon {
+    position: absolute;
+    width: 84px;
+    height: 92px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    padding: 8px 4px 6px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity var(--transition-fast), transform var(--transition-fast),
+        background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.desktop-icon.is-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.desktop-icon:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-subtle);
+}
+
+.desktop-icon.is-selected {
+    background: rgba(74, 144, 226, 0.14);
+    border-color: var(--accent-blue);
+}
+
+.desktop-icon.is-new-unlock {
+    animation: desktop-icon-unlock 2.2s var(--ease-out-expo);
+}
+
+@keyframes desktop-icon-unlock {
+    0% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.6); }
+    20% { box-shadow: 0 0 0 8px rgba(74, 144, 226, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0); }
+}
+
+.desktop-icon-glyph {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.desktop-icon-glyph svg {
+    width: 20px;
+    height: 20px;
+}
+
+.desktop-icon.is-selected .desktop-icon-glyph,
+.desktop-icon:hover .desktop-icon-glyph {
+    color: var(--text-primary);
+}
+
+.desktop-icon-label {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-align: center;
+    color: var(--text-primary);
+    line-height: 1.3;
+    max-width: 78px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    word-break: break-word;
+}
+
+.desktop-icon .notification-badge {
+    top: 4px;
+    right: 12px;
+}
+
+.desktop-marquee {
+    position: absolute;
+    border: 1px solid var(--accent-blue);
+    background: rgba(74, 144, 226, 0.12);
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* --- Desktop right-click context menu --- */
+.desktop-context-menu {
+    position: fixed;
+    min-width: 190px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+    padding: 6px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+}
+
+.desktop-context-menu button {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    text-align: left;
+    padding: 8px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.desktop-context-menu button:hover {
+    background: rgba(74, 144, 226, 0.12);
+    color: var(--accent-blue);
+}
+
+.desktop-context-menu .ctx-divider {
+    height: 1px;
+    background: var(--border-subtle);
+    margin: 6px 4px;
+}
+
+/* --- Notification toast tray (top-right stack) --- */
+.notification-tray {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 3000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 300px;
+    pointer-events: none;
+}
+
+.os-toast {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid var(--accent-blue);
+    border-radius: 6px;
+    padding: 10px 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    transform: translateX(16px);
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+    pointer-events: auto;
+}
+
+.os-toast.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.os-toast.is-leaving {
+    opacity: 0;
+    transform: translateX(16px);
+}
+
+.os-toast.is-clickable {
+    cursor: pointer;
+}
+
+.os-toast-icon {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 4px;
+    flex-shrink: 0;
+    background: var(--accent-blue);
+}
+
+.os-toast-evidence .os-toast-icon,
+.os-toast-evidence { border-left-color: var(--status-success); }
+.os-toast-evidence .os-toast-icon { background: var(--status-success); }
+
+.os-toast-success .os-toast-icon,
+.os-toast-success { border-left-color: var(--status-success); }
+.os-toast-success .os-toast-icon { background: var(--status-success); }
+
+.os-toast-error .os-toast-icon,
+.os-toast-error { border-left-color: var(--status-error); }
+.os-toast-error .os-toast-icon { background: var(--status-error); }
+
+.os-toast-system .os-toast-icon,
+.os-toast-system { border-left-color: var(--status-warning); }
+.os-toast-system .os-toast-icon { background: var(--status-warning); }
+
+.os-toast-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.os-toast-title {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--text-primary);
+    letter-spacing: 0.3px;
+}
+
+.os-toast-body {
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+/* --- Notification / system-status popover panel --- */
+.notification-panel {
+    position: fixed;
+    right: 16px;
+    bottom: 64px;
+    width: 320px;
+    max-height: 60vh;
+    overflow-y: auto;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+    z-index: 2500;
+}
+
+.notification-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border-subtle);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    color: var(--text-secondary);
+}
+
+.notification-panel-clear {
+    background: transparent;
+    border: none;
+    color: var(--accent-blue);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    padding: 2px 4px;
+}
+
+.notification-panel-empty {
+    padding: 24px 14px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.notification-panel-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.notification-panel-item {
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-left: 3px solid var(--accent-blue);
+}
+
+.notification-panel-item.kind-evidence,
+.notification-panel-item.kind-success { border-left-color: var(--status-success); }
+.notification-panel-item.kind-error { border-left-color: var(--status-error); }
+.notification-panel-item.kind-system { border-left-color: var(--status-warning); }
+
+.notification-panel-item-title {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--text-primary);
+}
+
+.notification-panel-item-body {
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+.notification-panel-item-time {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* Anchors the notification-bell popover above the taskbar bell icon
+   instead of the default bottom-right corner used by ad-hoc panels. */
+#notification-panel {
+    right: 16px;
+    bottom: 76px;
+}

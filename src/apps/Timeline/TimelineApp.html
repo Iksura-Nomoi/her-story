@@ -1,0 +1,30 @@
+<div class="dual-pane-app tln-s1">
+    <div class="app-sidebar tln-s2">
+        <div class="tln-s3">
+            QUERY PARAMETERS
+        </div>
+        <div class="tln-s4">
+            <div class="tln-s5">TIME RANGE (HH:MM)</div>
+            <div class="tln-s6">
+                <input class="tln-s7" type="time" id="timeline-start-{{id}}" value="00:00">
+                <span class="tln-s8">TO</span>
+                <input class="tln-s7" type="time" id="timeline-end-{{id}}" value="23:59">
+            </div>
+        </div>
+        {{dateRangeSection}}
+        <div class="tln-s9">
+            <div class="tln-s10">DATA SOURCES</div>
+            {{filterButtons}}
+        </div>
+        <div class="tln-s11">
+            <button id="timeline-apply-{{id}}" class="os-button tln-s12">APPLY FILTERS</button>
+        </div>
+    </div>
+    <div class="app-content tln-s13">
+        <div class="tln-s14">
+            <span class="tln-s15">CHRONOLOGICAL RECONSTRUCTION</span>
+            <span class="tln-s16" id="timeline-count-{{id}}">0 EVENTS</span>
+        </div>
+        <div class="tln-s17" id="timeline-feed-{{id}}"></div>
+    </div>
+</div>
