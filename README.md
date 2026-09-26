@@ -112,6 +112,21 @@ HER STORY is open to contributions — bug reports, feature ideas, new cases, an
 
 ## 📜 License & Intellectual Property
 
-The **source code** and underlying engine of HER STORY are licensed under the [MIT License](LICENSE). You are free to use, modify, and learn from the code structure.
+HER STORY is free software: the **source code** and underlying engine are released under the [GNU General Public License v3.0](LICENSE) (GPL-3.0). You are free to run, study, modify, and redistribute the code, provided any derivative work is distributed under the same license with this notice preserved.
 
-However, all **game assets, storylines, case files, character profiles, dialogue, documents, and artwork** are proprietary and remain the exclusive intellectual property of Mihsan Alam. You may not reuse, redistribute, or monetize the story, creative writing, or universe of HER STORY without explicit written permission.
+```
+Copyright (C) 2026 Mihsan Alam
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, version 3 of the License.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+this program. If not, see <https://www.gnu.org/licenses/>.
+```
+
+However, all **game assets, storylines, case files, character profiles, dialogue, documents, and artwork** are not covered by the GPL-3.0 grant and remain the exclusive intellectual property of Mihsan Alam. You may not reuse, redistribute, or monetize the story, creative writing, or universe of HER STORY without explicit written permission.

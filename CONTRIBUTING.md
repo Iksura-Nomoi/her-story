@@ -1,6 +1,6 @@
 # Contributing to HER STORY
 
-Thanks for your interest in HER STORY. This project is source-available (see [LICENSE](LICENSE)) — contributions are welcome, but please read the license before opening a pull request, since it governs how your contribution can be used.
+Thanks for your interest in HER STORY. This project is released under the [GNU General Public License v3.0](LICENSE) (GPL-3.0) — contributions are welcome, but please read the license before opening a pull request, since it governs how your contribution can be used.
 
 This project follows a [Code of Conduct](CODE_OF_CONDUCT.md); by participating, you agree to uphold it.
 
