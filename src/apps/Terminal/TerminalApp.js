@@ -3,7 +3,8 @@ import { AudioController } from '../../core/AudioController.js';
 import { TemplateLoader } from '../../services/TemplateLoader.js';
 import { Terminal } from 'xterm';
 import { FitAddon } from '@xterm/addon-fit';
-import 'xterm/css/xterm.css';
+// NOTE: xterm.css loads via <link> in index.html (not a JS import) so this
+// module also runs on plain static servers without a bundler.
 
 const WEBVM_TEMPLATE_PATH = 'src/apps/Terminal/TerminalApp.html';
 
