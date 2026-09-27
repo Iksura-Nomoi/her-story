@@ -1,9 +1,18 @@
-<div class="trm-s1">
-    <div class="trm-s2" id="term-output-{{id}}">
-        <!-- History injected here -->
+<div class="webvm-shell">
+    <div class="webvm-toolbar">
+        <span class="webvm-status-dot" id="webvm-dot-{{id}}"></span>
+        <span class="webvm-status-pill is-booting" id="webvm-status-{{id}}">BOOTING</span>
+        <span class="webvm-toolbar-spacer"></span>
+        <button class="webvm-btn" id="webvm-shell-{{id}}" title="Start a new shell session">NEW SHELL</button>
+        <button class="webvm-btn" id="webvm-clear-{{id}}" title="Clear the terminal screen">CLEAR</button>
     </div>
-    <div class="trm-s3">
-        <span class="trm-s4">{{promptLabel}}</span>
-        <input class="trm-s5" type="text" id="term-input-{{id}}" autocomplete="off" spellcheck="false">
+    <div class="webvm-viewport" id="webvm-viewport-{{id}}">
+        <div class="webvm-xterm" id="webvm-xterm-{{id}}"></div>
+        <div class="webvm-boot" id="webvm-boot-{{id}}">
+            <div class="webvm-spinner"></div>
+            <div class="webvm-boot-title" id="webvm-boot-title-{{id}}">STARTING TERMINAL</div>
+            <div class="webvm-boot-sub" id="webvm-boot-sub-{{id}}">First boot downloads the Debian disk image &mdash; this can take a minute on slow networks.</div>
+            <button class="webvm-btn hidden" id="webvm-retry-{{id}}">RETRY</button>
+        </div>
     </div>
 </div>

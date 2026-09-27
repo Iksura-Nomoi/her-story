@@ -116,7 +116,7 @@ export const APP_DEFINITIONS = [
         description: 'Query the investigation system from a sandboxed shell.',
         category: 'Operations',
         slot: 9,
-        window: { width: 900, height: 560, minWidth: 520, minHeight: 340 },
+        window: { width: 1000, height: 640, minWidth: 520, minHeight: 340 },
         load: () => import('../apps/Terminal/TerminalApp.js'),
     }),
     def({

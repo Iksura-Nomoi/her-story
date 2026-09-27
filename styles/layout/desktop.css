@@ -52,10 +52,24 @@
     transition: color var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
 }
 
-.app-icon svg {
+.app-icon svg,
+.app-icon img {
     width: 22px;
     height: 22px;
     transition: transform var(--transition-fast);
+}
+
+.app-icon img {
+    object-fit: contain;
+    pointer-events: none;
+}
+
+/* Material app icons in the taskbar running-list render a touch larger
+   than the old 22px line glyphs so the folder artwork stays legible. */
+#taskbar-running .app-icon img {
+    width: 28px;
+    height: 28px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }
 
 /* Taskbar Logo Button */
@@ -71,7 +85,8 @@
     background: rgba(255, 255, 255, 0.05);
 }
 
-.app-icon:active svg {
+.app-icon:active svg,
+.app-icon:active img {
     transform: scale(0.9);
 }
 
@@ -303,13 +318,13 @@
 }
 
 .desktop-icon-glyph {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text-secondary);
-    background: rgba(255, 255, 255, 0.04);
+    background: transparent;
     border-radius: 8px;
     flex-shrink: 0;
 }
@@ -317,6 +332,26 @@
 .desktop-icon-glyph svg {
     width: 20px;
     height: 20px;
+}
+
+/* vscode-material-icon-theme artwork: full-colour folder / file icons.
+   Rendered large with a desktop drop-shadow instead of inside the old
+   muted 40px tile, so they read like a real OS desktop. */
+.desktop-icon-glyph img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    pointer-events: none;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.55));
+    transition: transform var(--transition-fast);
+}
+
+.desktop-icon:hover .desktop-icon-glyph img {
+    transform: scale(1.06);
+}
+
+.desktop-icon.is-selected .desktop-icon-glyph img {
+    transform: scale(1.06);
 }
 
 .desktop-icon.is-selected .desktop-icon-glyph,

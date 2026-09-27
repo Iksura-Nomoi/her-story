@@ -122,7 +122,7 @@ select.sys-button:hover { color: var(--accent-blue); background-color: rgba(74, 
     cursor: pointer;
     transition: border-color var(--transition-fast), color var(--transition-fast), background var(--transition-fast);
 }
-.corner-btn svg { width: 17px; height: 17px; flex-shrink: 0; }
+.corner-btn svg, .corner-btn img { width: 20px; height: 20px; flex-shrink: 0; object-fit: contain; }
 .corner-btn-label {
     font-family: var(--font-mono);
     font-size: 11px;
