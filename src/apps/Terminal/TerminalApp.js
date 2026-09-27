@@ -143,7 +143,7 @@ export class TerminalApp extends BaseApp {
         if (!window.crossOriginIsolated) {
             this._fail(
                 'Cross-origin isolation is missing.',
-                'This page must be served with COOP: same-origin + COEP: require-corp headers.'
+                'Reload once (a helper activates on load) or serve with COOP: same-origin + COEP: require-corp headers — `npm run dev` already does.'
             );
             return;
         }
