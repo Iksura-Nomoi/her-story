@@ -47,6 +47,7 @@
 
     <!-- Apple Web App -->
     <meta name="apple-mobile-web-app-title" content="HER STORY">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
@@ -255,11 +256,11 @@
 
         <div id="system-corner">
             <button id="btn-help-system" class="app-icon corner-btn" aria-label="Investigation Guide" data-tooltip="Help">
-                <img src="assets/app-icons/help.svg" alt="" draggable="false" />
+                <img src="assets/app-icons/help.svg" alt="" draggable="false" onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='public/'+this.getAttribute('src');}" />
                 <span class="corner-btn-label">Help</span>
             </button>
             <button id="btn-case-archive" class="app-icon corner-btn hidden" aria-label="Campaign Archive" data-tooltip="Archive">
-                <img src="assets/app-icons/case-archive.svg" alt="" draggable="false" />
+                <img src="assets/app-icons/case-archive.svg" alt="" draggable="false" onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='public/'+this.getAttribute('src');}" />
                 <span class="corner-btn-label">Archive</span>
             </button>
         </div>
@@ -275,7 +276,7 @@
 
             <div class="taskbar-bottom">
                 <button id="btn-app-settings" class="app-icon" aria-label="Settings" data-tooltip="Settings">
-                    <img src="assets/app-icons/settings.svg" alt="" draggable="false" />
+                    <img src="assets/app-icons/settings.svg" alt="" draggable="false" onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='public/'+this.getAttribute('src');}" />
                 </button>
                 <div id="notification-tray-btn" class="app-icon" role="button" tabindex="0" aria-label="Notifications" data-tooltip="Notifications">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>

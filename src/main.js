@@ -102,8 +102,10 @@ const APP_WINDOW_SIZES = {
 };
 
 const APP_ICON_DIR = 'assets/app-icons';
+// One-time `public/` retry so icons also resolve on plain static servers
+// (no vite `public/` → `/` mapping there).
 const appIconImg = (file, label) =>
-    `<img src="${APP_ICON_DIR}/${file}.svg" alt="" draggable="false" loading="eager" />`;
+    `<img src="${APP_ICON_DIR}/${file}.svg" alt="" draggable="false" loading="eager" onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='public/'+this.getAttribute('src');}" />`;
 
 const ICON_GLYPHS = {
     'case-files': appIconImg('case-files'),

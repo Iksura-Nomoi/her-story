@@ -56,10 +56,18 @@ export class BaseApp {
         const closeBtn = this.element.querySelector('.win-btn.close');
         const minimizeBtn = this.element.querySelector('.win-btn.minimize');
         const maximizeBtn = this.element.querySelector('.win-btn.maximize');
-        closeBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            this.close();
-        });
+        // If the window template failed to load (offline / wrong server root),
+        // degrade gracefully instead of throwing on null controls.
+        if (!header) {
+            console.warn(`[Her-Story] window template missing for "${this.id}" — controls disabled.`);
+            return;
+        }
+        if (closeBtn) {
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.close();
+            });
+        }
         if (minimizeBtn) {
             minimizeBtn.addEventListener('click', (e) => {
                 e.stopPropagation();

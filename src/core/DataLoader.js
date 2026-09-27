@@ -3,15 +3,19 @@ export class DataLoader {
         this.currentCaseData = null;
     }
     async loadCase(caseId) {
-        try {
-            const response = await fetch(`./data/cases/${caseId}.json`);
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-            this.currentCaseData = await response.json();
-            return this.currentCaseData;
-        } catch (error) {
-            console.error("Could not load case data:", error);
-            return null;
+        const candidates = [`./data/cases/${caseId}.json`, `./public/data/cases/${caseId}.json`];
+        for (const url of candidates) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) continue;
+                this.currentCaseData = await response.json();
+                return this.currentCaseData;
+            } catch (error) {
+                continue;
+            }
         }
+        console.error(`Could not load case data: ${caseId} (tried ${candidates.join(', ')})`);
+        return null;
     }
     getEvidence() {
         return this.currentCaseData ? this.currentCaseData.evidence : [];
