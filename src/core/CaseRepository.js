@@ -125,14 +125,20 @@ export class CaseRepository {
     // -- internals --------------------------------------------------------
 
     async _fetchJson(url) {
-        try {
-            const response = await fetch(url, { cache: 'no-cache' });
-            if (!response.ok) return null;
-            return await response.json();
-        } catch (error) {
-            console.warn(`[Her-Story] could not load ${url}`, error);
-            return null;
+        // Plain static servers (no vite) serve these under `public/…`.
+        const candidates = [url];
+        if (!/^(public\/|https?:|data:|blob:)/.test(url)) candidates.push(`public/${url.replace(/^\.\//, '')}`);
+        for (const candidate of candidates) {
+            try {
+                const response = await fetch(candidate, { cache: 'no-cache' });
+                if (!response.ok) continue;
+                return await response.json();
+            } catch (error) {
+                continue;
+            }
         }
+        console.warn(`[Her-Story] could not load ${url}`);
+        return null;
     }
 
     _normalize(caseId, manifestEntry, raw) {

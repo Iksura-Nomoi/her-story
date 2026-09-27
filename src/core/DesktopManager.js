@@ -435,8 +435,20 @@ export class DesktopManager {
     applyWallpaper(id) {
         if (!this.wallpaperEl) return;
         const wp = WALLPAPERS.find(w => w.id === id) || WALLPAPERS[0];
+        const primary = `${WALLPAPER_DIR}${wp.file}`;
 
-        this.wallpaperEl.style.backgroundImage = `url("${WALLPAPER_DIR}${wp.file}")`;
+        this.wallpaperEl.style.backgroundImage = `url("${primary}")`;
+        // Plain static servers (no vite) serve these under `public/…` — swap
+        // to the prefixed path only if the primary one fails to load.
+        if (!primary.startsWith('public/')) {
+            const probe = new Image();
+            probe.onerror = () => {
+                if (this.wallpaperEl) {
+                    this.wallpaperEl.style.backgroundImage = `url("public/${primary}")`;
+                }
+            };
+            probe.src = primary;
+        }
         stateManager.set('wallpaper', wp.id);
     }
 

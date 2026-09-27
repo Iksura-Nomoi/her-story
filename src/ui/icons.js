@@ -12,8 +12,9 @@ const wrap = (body) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColo
 
 // Material app icon (vendored SVG file). Returns an <img> tag so the full
 // colour artwork renders as-is instead of being forced to currentColor.
+// Includes a one-time `public/` retry for plain static servers.
 const appIcon = (file) =>
-    `<img src="assets/app-icons/${file}.svg" alt="" draggable="false" loading="eager" />`;
+    `<img src="assets/app-icons/${file}.svg" alt="" draggable="false" loading="eager" onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='public/'+this.getAttribute('src');}" />`;
 
 export const ICONS = Object.freeze({
     // ---- applications (vscode-material-icon-theme, MIT) -------------------

@@ -208,11 +208,8 @@ export class DevTools {
 
             let epilogueText = "Investigation complete. All evidence has been submitted.";
             try {
-                const res = await fetch('./data/cases/case010.json');
-                if (res.ok) {
-                    const case010 = await res.json();
-                    epilogueText = case010?.solution?.successMessage || epilogueText;
-                }
+                const case010 = await this._fetchCaseJson('case010');
+                epilogueText = case010?.solution?.successMessage || epilogueText;
             } catch (err) {
                 console.error('DevTools: could not preload case010 for ending simulation:', err);
             }
@@ -437,9 +434,8 @@ export class DevTools {
             const completed = [];
             for (const id of ALL_CASE_IDS) {
                 try {
-                    const res = await fetch(`./data/cases/${id}.json`);
-                    if (!res.ok) continue;
-                    const caseData = await res.json();
+                    const caseData = await this._fetchCaseJson(id);
+                    if (!caseData) continue;
                     const evidenceManifest = (caseData.evidence || []).map(e => ({ id: e.id, title: e.title, summary: e.summary || e.title }));
                     completed.push({ id, title: caseData.title || id, evidenceManifest });
                 } catch (err) {
@@ -667,5 +663,16 @@ export class DevTools {
         const div = document.createElement('div');
         div.textContent = str;
         return div.innerHTML;
+    }
+
+    // Case JSON with a `public/` retry for plain static servers (no vite).
+    async _fetchCaseJson(id) {
+        for (const url of [`./data/cases/${id}.json`, `./public/data/cases/${id}.json`]) {
+            try {
+                const res = await fetch(url);
+                if (res.ok) return await res.json();
+            } catch {}
+        }
+        return null;
     }
 }
