@@ -66,6 +66,18 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet" crossorigin="anonymous">
     
+    <!-- Cross-origin isolation for the Terminal's Linux VM on hosts without
+         COOP/COEP headers (plain static servers). Skipped where the headers
+         already exist (vite dev / production). -->
+    <script>
+        (function () {
+            if (window.crossOriginIsolated !== false) return;
+            if (!('serviceWorker' in navigator) || !window.isSecureContext) return;
+            var s = document.createElement('script');
+            s.src = 'coi-serviceworker.js';
+            document.head.appendChild(s);
+        })();
+    </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@5.3.0/css/xterm.css" crossorigin="anonymous">
     <!-- Bare "xterm" imports resolve locally under vite, and via this map
          on plain static servers (which can't resolve npm specifiers). -->

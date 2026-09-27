@@ -39,6 +39,11 @@ function copyRuntimeTemplatesPlugin() {
         mkdirSync(dirname(dest), { recursive: true });
         copyFileSync(file, dest);
       });
+      // coi-serviceworker.js must be served untransformed from the site root
+      // (service workers need same-path scope) — copy it verbatim too.
+      try {
+        copyFileSync(join(root, 'coi-serviceworker.js'), join(root, outDir, 'coi-serviceworker.js'));
+      } catch {}
     }
   };
 }
