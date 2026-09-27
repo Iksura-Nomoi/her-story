@@ -94,31 +94,36 @@ const APP_WINDOW_SIZES = {
     'map': [720, 540],
     'forensics': [800, 520],
     'network': [700, 500],
-    'terminal': [640, 420],
+    'terminal': [1000, 640],
     'notes': [520, 440],
     'archive': [640, 480],
     'settings': [500, 400],
     'submit': [500, 450]
 };
 
-const ICON_GLYPHS = {
-    'case-files': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 9a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2z"/><path d="M11 17h10M11 21h6"/></svg>',
-    'messages': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H14l-6 5v-5H8a2 2 0 0 1-2-2z"/><path d="M11 12h10M11 16h6"/></svg>',
-    'suspects': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="16" cy="12" r="5"/><path d="M6 27c0-5.5 4.5-9 10-9s10 3.5 10 9"/></svg>',
-    'locker': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="7" y="6" width="18" height="20" rx="1.5"/><path d="M16 6v20M11 12h1M20 12h1M11 20h1M20 20h1"/></svg>',
-    'media': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="7" width="22" height="18" rx="1.5"/><circle cx="12" cy="13" r="2"/><path d="M6 22l6-6 4 4 5-6 5 7"/></svg>',
-    'cctv': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="10" width="17" height="13" rx="1.5"/><path d="M21 14l7-4v13l-7-4"/><circle cx="9" cy="16.5" r="2"/></svg>',
-    'timeline': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg>',
-    'map': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 8l8-3 8 3 8-3v19l-8 3-8-3-8 3z"/><path d="M12 5v19M20 8v19"/></svg>',
-    'forensics': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M13 4v10.5L7 24a3 3 0 0 0 2.6 4.5h12.8A3 3 0 0 0 25 24l-6-9.5V4"/><path d="M11 4h10M11 19h10"/></svg>',
-    'network': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="16" cy="7" r="3"/><circle cx="7" cy="24" r="3"/><circle cx="25" cy="24" r="3"/><path d="M16 10v6M16 16l-7 6M16 16l7 6"/></svg>',
-    'terminal': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="6" width="24" height="20" rx="1.5"/><path d="M9 13l5 4-5 4M17 21h6"/></svg>',
-    'notes': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 4h12l6 6v18a1.5 1.5 0 0 1-1.5 1.5h-16A1.5 1.5 0 0 1 7 28V5.5A1.5 1.5 0 0 1 8 4z"/><path d="M20 4v6h6M11 17h10M11 21h7"/></svg>',
-    'archive': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="6" width="24" height="6" rx="1.5"/><path d="M6 12v13a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V12"/><path d="M13 18h6"/></svg>',
-    'settings': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="16" cy="16" r="4"/><path d="M16 4v3M16 25v3M4 16h3M25 16h3M7.5 7.5l2 2M22.5 22.5l2 2M24.5 7.5l-2 2M9.5 22.5l-2 2"/></svg>',
-    'submit': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M28 15.5A12 12 0 1 1 19.5 4.4"/><path d="M28 6L16 18l-4-4"/></svg>',
+const APP_ICON_DIR = 'assets/app-icons';
+const appIconImg = (file, label) =>
+    `<img src="${APP_ICON_DIR}/${file}.svg" alt="" draggable="false" loading="eager" />`;
 
-    'help': '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="16" cy="16" r="12"/><path d="M12.2 12.5a3.8 3.8 0 1 1 5.4 3.4c-1.1.6-1.6 1.2-1.6 2.4v.7"/><path d="M16 23.2h.01" stroke-linecap="round" stroke-width="2"/></svg>'
+const ICON_GLYPHS = {
+    'case-files': appIconImg('case-files'),
+    'messages': appIconImg('messages'),
+    'suspects': appIconImg('suspects'),
+    'locker': appIconImg('locker'),
+    'media': appIconImg('media'),
+    'cctv': appIconImg('cctv'),
+    'timeline': appIconImg('timeline'),
+    'map': appIconImg('map'),
+    'forensics': appIconImg('forensics'),
+    'network': appIconImg('network'),
+    'terminal': appIconImg('terminal'),
+    'notes': appIconImg('notes'),
+    'archive': appIconImg('archive'),
+    'settings': appIconImg('settings'),
+    'submit': appIconImg('submit'),
+
+    'help': appIconImg('help'),
+    'case-archive': appIconImg('case-archive')
 };
 
 const APP_LABELS = {

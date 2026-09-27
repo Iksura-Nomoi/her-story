@@ -100,6 +100,14 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, import.meta.dirname, '');
   return {
   plugins: [copyRuntimeTemplatesPlugin(), devToolsAuthApiPlugin(env)],
+  // CheerpX (Terminal's real Linux VM) needs SharedArrayBuffer, which needs
+  // cross-origin isolation even on localhost. Same headers as vercel.json.
+  server: {
+    headers: {
+      'Cross-Origin-Opener-Policy': 'same-origin',
+      'Cross-Origin-Embedder-Policy': 'require-corp',
+    },
+  },
   build: {
     rollupOptions: {
       input: {
